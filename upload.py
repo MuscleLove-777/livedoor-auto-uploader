@@ -27,37 +27,210 @@ UPLOADED_LOG = "uploaded.json"
 # AtomPub API（旧版）ベースURL
 ATOM_BASE = "https://livedoor.blogcms.jp/atom/blog/{blog_name}"
 
-# 記事タイトルテンプレート（ランダムに選択）
+# ============================================================
+# 記事タイトルテンプレート（ライブドアブログ人気ブログ風）
+# 【】付き、数字入り、好奇心を引くスタイル
+# ============================================================
 TITLE_TEMPLATES = [
-    "Powerful Beauty",
-    "Strength & Grace",
-    "Iron Goddess",
-    "Muscle Queen",
-    "Shredded Perfection",
-    "Hard Body Goals",
-    "Fitness Goddess",
-    "Strong is Beautiful",
-    "Sculpted Physique",
-    "Athletic Elegance",
-    "Peak Performance",
-    "Muscle Paradise",
-    "Definition Goals",
-    "Power & Beauty",
-    "Steel Body",
-    "Gym Goddess",
-    "Ripped Angel",
-    "Muscle Babe",
-    "Body Goals",
-    "今日のMuscleLove",
-    "筋肉美の極み",
-    "鍛え上げた美しさ",
+    # 好奇心系
+    "【衝撃】この筋肉美、見たことある？",
+    "【保存版】筋肉女子の美しさがヤバすぎる件",
+    "【圧巻】鍛え抜かれた身体がここに",
+    "【必見】こんな筋肉美、他にない",
+    "【驚愕】女性の筋肉美ここに極まれり",
+    # ストーリー系
+    "今日出会った最高の筋肉美を紹介する",
+    "この鍛え上げた身体、反則でしょ...",
+    "筋肉女子の魅力が止まらない件について",
+    "見てくれ、この圧倒的な肉体美を",
+    "これが本物のフィットネスボディ",
+    # カジュアル・会話調
+    "もうね、この筋肉に惚れた（直球）",
+    "筋肉女子の破壊力がエグい",
+    "バキバキボディの美しさを語りたい",
+    "今日の筋肉女子が最高すぎたｗ",
+    "鍛え抜いた身体って、なんでこんなに美しいの",
+    # 英語ミックス
+    "【Muscle Queen】今日のベストショット",
+    "【Strong is Beautiful】鍛えた女性は美しい",
+    "【Iron Goddess】圧倒的筋肉美",
+    "【Power & Beauty】強さと美しさの共存",
+    "【Gym Goddess】フィットネスの女神",
+    # 問いかけ系
+    "筋肉女子の魅力、あなたは気づいてる？",
+    "なぜ鍛えた女性はこんなに美しいのか",
+    "筋トレ女子を推さない理由がない",
+]
+
+# ============================================================
+# ブログ記事テンプレート（人気ライブドアブログの書き方 × MuscleLove文体）
+# 書き出し → 画像 → 本文 → まとめ → CTA の構成
+# ============================================================
+BLOG_BODY_TEMPLATES = [
+    # テンプレ1: カジュアル・興奮系
+    {
+        'opening': [
+            'どうも、MuscleLoveです💪',
+            'やっほー、MuscleLoveやで💪',
+            'MuscleLoveです！今日もいくぞ🔥',
+        ],
+        'intro': [
+            'いやー、今日もヤバいの見つけてしまった。',
+            '今日の一枚、マジでやばい。語彙力失うレベル。',
+            'はい来ました。これは保存確定ですわ。',
+            'もうね、こういうの見ると元気出るよね。',
+        ],
+        'body': [
+            'この引き締まった身体、見てくれよ。<br>'
+            '鍛え上げた筋肉の一つ一つが美しい。<br>'
+            'こういう肉体美って、日々の努力の結晶なんだよな。',
+
+            'バキバキに仕上がった身体。<br>'
+            '筋肉のカット、ポージング、全部が芸術。<br>'
+            'これぞ鍛え抜いた者だけが持てる美しさ。',
+
+            '迫力ある筋肉美と色気あふれるポーズ。<br>'
+            '汗ばむ肌と浮き出る筋肉のコントラストがたまらん。<br>'
+            '強さと美しさって共存するんだよな。',
+        ],
+        'closing': [
+            'やっぱ筋肉女子は最高だわ（確信）',
+            'これだから筋肉女子の推し活はやめられない',
+            '今日もいい筋肉を見て、いい1日だった',
+        ],
+    },
+    # テンプレ2: 解説・豆知識系
+    {
+        'opening': [
+            'MuscleLoveです！',
+            'こんにちは、MuscleLoveです✨',
+        ],
+        'intro': [
+            '今日は筋肉美の魅力について語りつつ、最高の一枚を紹介します。',
+            '筋トレ女子の美しさ、伝わってますか？今日も全力で紹介します。',
+            '鍛えた女性の身体って本当に美しい。今日もその魅力をお届け。',
+        ],
+        'body': [
+            '■ 筋肉女子が美しい理由<br><br>'
+            '鍛え上げた筋肉には、日々のストイックな努力が詰まってる。<br>'
+            '食事管理、トレーニング、休息のバランス。<br>'
+            'その全てが身体に表れるから、こんなに美しいんだよな。<br><br>'
+            '今日の一枚も、まさにその結晶。',
+
+            '■ なぜ筋肉美に惹かれるのか<br><br>'
+            '筋肉って「努力の可視化」なんだよね。<br>'
+            '毎日のトレーニングが、そのまま身体のラインに出る。<br>'
+            '嘘がつけない。だから美しい。<br><br>'
+            '今日のショットも、その美しさが詰まってる。',
+        ],
+        'closing': [
+            '筋肉女子の魅力、少しでも伝わったら嬉しい！',
+            '鍛えた身体の美しさ、これからも発信していくよ💪',
+            'もっと筋肉女子の世界を知りたい人は、ぜひ見てって！',
+        ],
+    },
+    # テンプレ3: ストーリー・シチュエーション系
+    {
+        'opening': [
+            'MuscleLoveです🔥',
+            'どうも！MuscleLoveです💪',
+        ],
+        'intro': [
+            'ある日のジムにて。こんな光景に出会ったら、目が離せなくなるよな。',
+            '今日は特別な一枚。この筋肉美、ストーリーを感じない？',
+            '想像してみてくれ。目の前にこの肉体美があったら。',
+        ],
+        'body': [
+            '鍛え抜かれた身体から放たれるオーラ。<br>'
+            '一つ一つの筋肉が語りかけてくるような迫力。<br>'
+            'これだけのフィジークを作り上げるには、<br>'
+            '想像を超える努力があったはず。<br><br>'
+            'それでも彼女たちは笑顔で、軽々とポーズを決める。<br>'
+            'かっこよすぎないか...？',
+
+            'この身体を見てほしい。<br>'
+            'シュレッドされた腹筋、盛り上がった肩、引き締まった脚。<br>'
+            '全てが完璧なバランスで仕上がってる。<br><br>'
+            'こういう肉体美を見ると、<br>'
+            '「人間の身体ってここまでいけるんだ」って感動するよな。',
+        ],
+        'closing': [
+            'こういう出会いがあるから、筋肉女子の世界はやめられない',
+            '最高の筋肉美をお届けできたかな？',
+            '今日もいい筋肉に出会えた。感謝。',
+        ],
+    },
+    # テンプレ4: 超短文・テンポ系（モバイル向き）
+    {
+        'opening': [
+            'MuscleLove💪',
+            '🔥MuscleLove🔥',
+        ],
+        'intro': [
+            'はい、今日のベストショット。',
+            '見てくれ。',
+            '今日の一枚。',
+        ],
+        'body': [
+            'この筋肉。<br>'
+            'この迫力。<br>'
+            'この美しさ。<br><br>'
+            '語彙力？いらん。見ればわかる。',
+
+            'バキバキ。<br>'
+            'シュレッド。<br>'
+            'パーフェクト。<br><br>'
+            '以上。（褒め言葉）',
+
+            '強い。<br>'
+            '美しい。<br>'
+            '最高。<br><br>'
+            '筋肉女子、推すしかない。',
+        ],
+        'closing': [
+            'はい優勝🏆',
+            '今日も筋肉に感謝✨',
+            '以上！また明日💪',
+        ],
+    },
+    # テンプレ5: 問いかけ・読者参加系
+    {
+        'opening': [
+            'MuscleLoveです！今日はみんなに聞きたいことがある💪',
+            'こんにちは、MuscleLoveです！',
+        ],
+        'intro': [
+            '突然だけど、筋肉女子の魅力って何だと思う？',
+            'あなたが筋肉女子に惹かれるポイント、どこ？',
+            '今日はこの写真を見て、率直な感想を聞かせてほしい。',
+        ],
+        'body': [
+            '俺はね、やっぱりこの「鍛え抜いた感」がたまらないんよ。<br><br>'
+            '腹筋のカット、肩のキャップ、背中の広がり。<br>'
+            '全部が努力の証。<br>'
+            'その覚悟と結果が身体に刻まれてるのが、最高にかっこいい。<br><br>'
+            'あなたはどう思う？',
+
+            '筋肉美の魅力って人それぞれだと思うんだけど、<br>'
+            '俺が好きなのはこの「ストイックさが身体に出てる」ところ。<br><br>'
+            '甘えなし、言い訳なし。<br>'
+            'ただひたすら鍛え上げた結果がこれ。<br>'
+            '美しくない？',
+        ],
+        'closing': [
+            'コメントで教えてくれ！筋肉女子のどこが好き？💪',
+            'あなたの推しポイント、コメントで語ろう🔥',
+            'みんなの意見聞かせて！',
+        ],
+    },
 ]
 
 # ハッシュタグ（ブログ本文に挿入）
 BASE_HASHTAGS = [
     '筋トレ', '筋肉女子', 'フィットネス', 'ワークアウト', 'ジム',
     'musclegirl', 'fitness', 'strongwomen', 'workout', 'gym',
-    'MuscleLove', 'FBB', 'fitnessmotivation',
+    'MuscleLove', 'FBB', 'fitnessmotivation', '筋トレ女子',
+    '筋肉美', 'マッスルガール', 'フィジーク',
 ]
 
 # コンテンツ推測用マッピング
@@ -288,7 +461,7 @@ def build_article_xml(title, body_html, category=None, draft=False):
 
 
 def build_blog_html(image_url, tags, file_path):
-    """ブログ記事のHTML本文を生成"""
+    """人気ライブドアブログ風の記事HTML本文を生成"""
     parts = file_path.replace('\\', '/').split('/')
     category = "Muscle"
     for p in parts:
@@ -296,24 +469,47 @@ def build_blog_html(image_url, tags, file_path):
             category = sanitize_category(p)
             break
 
+    # テンプレートをランダム選択
+    template = random.choice(BLOG_BODY_TEMPLATES)
+
+    opening = random.choice(template['opening'])
+    intro = random.choice(template['intro'])
+    body = random.choice(template['body'])
+    closing = random.choice(template['closing'])
+
     hashtag_html = ' '.join([f'#{t}' for t in tags[:15]])
 
-    html = f'''<div style="text-align: center;">
+    html = f'''<p>{opening}</p>
+
+<p>{intro}</p>
+
+<p>&nbsp;</p>
+
+<div style="text-align: center;">
 <p><img src="{image_url}" alt="{category}" style="max-width: 100%;" /></p>
 </div>
 
 <p>&nbsp;</p>
 
-<div style="text-align: center; font-size: 1.2em;">
-<p>🔥 <strong>More content on Patreon!</strong></p>
-<p><a href="{PATREON_LINK}" target="_blank" rel="noopener">
+<p>{body}</p>
+
+<p>&nbsp;</p>
+
+<p>{closing}</p>
+
+<hr />
+
+<div style="text-align: center; background: #1a1a2e; padding: 20px; border-radius: 10px; margin: 20px 0;">
+<p style="font-size: 1.3em; color: #FFD700;">🔥 もっと見たい？ Patreonで限定コンテンツ公開中！</p>
+<p style="font-size: 1.1em;"><a href="{PATREON_LINK}" target="_blank" rel="noopener" style="color: #00C9FF; text-decoration: underline;">
 👉 MuscleLove on Patreon 👈
 </a></p>
+<p style="font-size: 0.9em; color: #ccc;">ここでしか見れない筋肉美をお届け中💪</p>
 </div>
 
 <p>&nbsp;</p>
 
-<p style="color: #888; font-size: 0.9em;">{hashtag_html}</p>'''
+<p style="color: #888; font-size: 0.85em;">{hashtag_html}</p>'''
 
     return html, category
 
