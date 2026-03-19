@@ -1,5 +1,6 @@
-media/
-uploaded.json
 __pycache__/
-*.pyc
 .env
+images/
+test_*
+*.png
+media/
