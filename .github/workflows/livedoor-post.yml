@@ -2,12 +2,8 @@ name: Livedoor Blog Auto Post
 
 on:
   schedule:
-    # 7:00 JST = 22:00 UTC (前日)
-    - cron: '0 22 * * *'
-    # 12:30 JST = 03:30 UTC
-    - cron: '30 3 * * *'
-    # 19:30 JST = 10:30 UTC
-    - cron: '30 10 * * *'
+    # 毎日 JST 12:00 (UTC 3:00)
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
