@@ -2,8 +2,10 @@ name: Livedoor Blog Auto Post
 
 on:
   schedule:
-    # 毎日 JST 12:00 (UTC 3:00)
-    - cron: '0 3 * * *'
+    # Wave6-C 頻度UP (規約配慮で間隔分散、ameblo UTC 3/9/13 とは衝突なし)
+    - cron: '0 4 * * *'  # JST 13:00
+    - cron: '0 10 * * *'  # JST 19:00
+    - cron: '0 16 * * *'  # JST 01:00
   workflow_dispatch:
 
 permissions:
