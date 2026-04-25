@@ -19,10 +19,39 @@ LIVEDOOR_USER_ID = os.environ.get("LIVEDOOR_USER_ID", "")
 LIVEDOOR_API_KEY = os.environ.get("LIVEDOOR_API_KEY", "")
 BLOG_NAME = os.environ.get("LIVEDOOR_BLOG_NAME", "")
 
-PATREON_LINK = "https://www.patreon.com/cw/MuscleLove"
+PATREON_LINK = "https://www.patreon.com/cw/MuscleLove?utm_source=livedoor"
 IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'}
 MAX_FILE_SIZE = 10 * 1024 * 1024  # ライブドアブログ画像上限: 10MB
 UPLOADED_LOG = "uploaded.json"
+
+# --- MuscleLove バックリンクプール（フィットネス系のみ。一般プラットフォーム配慮） ---
+ML_BACKLINK_POOL_FITNESS = [
+    ("https://musclelove-777.github.io/muscle-meal-girls/", "筋肉女子のマッスルメシ"),
+    ("https://musclelove-777.github.io/runners-lab/", "ランナーラボ"),
+    ("https://musclelove-777.github.io/armwrestling-girls-navi/", "腕相撲女子ナビ"),
+    ("https://musclelove-777.github.io/physique-girls-navi/", "フィジーク女子ナビ"),
+    ("https://musclelove-777.github.io/fighting-girls-navi/", "格闘技女子ナビ"),
+    ("https://musclelove-777.github.io/joshi-prowrestling-navi/", "女子プロレスナビ"),
+    ("https://musclelove-777.github.io/female-physique-queens/", "Female Physique Queens"),
+    ("https://musclelove-777.github.io/network/fitness/", "全Fitness Network 15サイト一覧"),
+    ("https://musclelove-777.github.io/network/academy/", "MuscleLove Academy 77サイト"),
+]
+
+
+def build_backlink_block():
+    """MuscleLoveフィットネス系サイトへのバックリンクHTMLブロックを生成（ランダム3件、冪等マーカー付き）"""
+    try:
+        k = min(3, len(ML_BACKLINK_POOL_FITNESS))
+        selected = random.sample(ML_BACKLINK_POOL_FITNESS, k=k)
+        items = " | ".join([f'<a href="{u}" target="_blank" rel="noopener">{n}</a>' for u, n in selected])
+        return (
+            "\n<br/><br/>\n"
+            "<!-- ML_BACKLINK -->\n"
+            f'<small style="color:#888;">💡 関連サイト：{items}</small>\n'
+            "<!-- /ML_BACKLINK -->\n"
+        )
+    except Exception:
+        return ""
 
 # AtomPub API（旧版）ベースURL
 ATOM_BASE = "https://livedoor.blogcms.jp/atom/blog/{blog_name}"
@@ -32,34 +61,39 @@ ATOM_BASE = "https://livedoor.blogcms.jp/atom/blog/{blog_name}"
 # 【】付き、数字入り、好奇心を引くスタイル
 # ============================================================
 TITLE_TEMPLATES = [
-    # 好奇心系
-    "【衝撃】この筋肉美、見たことある？",
-    "【保存版】筋肉女子の美しさがヤバすぎる件",
-    "【圧巻】鍛え抜かれた身体がここに",
-    "【必見】こんな筋肉美、他にない",
-    "【驚愕】女性の筋肉美ここに極まれり",
-    # ストーリー系
-    "今日出会った最高の筋肉美を紹介する",
-    "この鍛え上げた身体、反則でしょ...",
-    "筋肉女子の魅力が止まらない件について",
-    "見てくれ、この圧倒的な肉体美を",
-    "これが本物のフィットネスボディ",
-    # カジュアル・会話調
-    "もうね、この筋肉に惚れた（直球）",
-    "筋肉女子の破壊力がエグい",
-    "バキバキボディの美しさを語りたい",
-    "今日の筋肉女子が最高すぎたｗ",
-    "鍛え抜いた身体って、なんでこんなに美しいの",
-    # 英語ミックス
-    "【Muscle Queen】今日のベストショット",
-    "【Strong is Beautiful】鍛えた女性は美しい",
-    "【Iron Goddess】圧倒的筋肉美",
-    "【Power & Beauty】強さと美しさの共存",
-    "【Gym Goddess】フィットネスの女神",
-    # 問いかけ系
-    "筋肉女子の魅力、あなたは気づいてる？",
-    "なぜ鍛えた女性はこんなに美しいのか",
-    "筋トレ女子を推さない理由がない",
+    # まとめブログ風（～した結果www / ～がこちら）
+    "筋肉女子の写真を見た結果wwwwww",
+    "ワイ「筋肉女子とか無いわ」→ 画像を見た結果ｗｗｗ",
+    "筋トレ女子のボディがこちらですwww",
+    "女さん、鍛えすぎた結果がこちらwww",
+    "筋肉女子の最新ショットがこちらになります",
+    "ジム通い女子の現在の姿がこちらwww",
+    # なんJ・速報系
+    "【朗報】筋肉女子、ガチで美しい",
+    "【朗報】本日の筋肉美、過去最高を更新",
+    "【速報】筋肉女子さん、バキバキすぎるwww",
+    "【悲報】ワイ、筋肉女子に完全に堕ちる",
+    "【急募】この筋肉美に勝てる画像",
+    "【画像】筋トレ女子さん、仕上がりすぎ問題",
+    # ～な件・～なんだが系
+    "筋肉女子が美しすぎる件について",
+    "この筋肉美がヤバすぎる件wwwww",
+    "筋トレ女子のボディ、えぐすぎる件",
+    "ガチで鍛えた女性の身体がエモすぎる件",
+    "筋肉女子を推してるんだが異端か？",
+    "この筋肉美見て何も感じないやつおる？",
+    # ～すぎて草 / 感嘆系
+    "鍛え上げた女性の身体、美しすぎて草",
+    "筋肉のカットが芸術的すぎて震えた",
+    "マッスル女子のフィジーク、完成度ヤバすぎ",
+    "今日の筋肉女子、100点満点で200点",
+    "これもう芸術だろ...筋肉女子の肉体美",
+    # トレンドワード・バズ系
+    "正直この筋肉女子に惚れないやついる？",
+    "3秒で惚れる筋肉美がこちら",
+    "「筋肉女子 美しい」で検索した結果www",
+    "AI超え。これがリアル筋肉美ですけど？",
+    "ジム行くモチベ爆上がりする画像貼ってく",
 ]
 
 # ============================================================
@@ -355,6 +389,7 @@ def generate_tags(file_path):
 
 def sanitize_category(name, max_len=30):
     """フォルダ名からカテゴリ名を安全に抽出"""
+    name = re.sub(r'(?i)\s*not\s+nsfw\s*', ' ', name).strip()
     name = re.sub(r'[{}\[\]]', '', name)
     if ',' in name:
         name = name.split(',')[0].strip()
@@ -511,6 +546,7 @@ def build_blog_html(image_url, tags, file_path):
 
 <p style="color: #888; font-size: 0.85em;">{hashtag_html}</p>'''
 
+    html = html.rstrip() + build_backlink_block()
     return html, category
 
 
