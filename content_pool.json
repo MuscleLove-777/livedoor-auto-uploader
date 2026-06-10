@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11 00:28:03 +0900",
+  "generated_at": "2026-06-11 08:41:30 +0900",
   "version": "20260611",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
@@ -17,16 +17,17 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "Claude",
-    "Fable",
-    "アトランティックサーモン"
+    "ミラノ",
+    "イラン",
+    "ジャンプ"
   ],
   "lanes": {
     "safe_fitness": {
       "platforms": [
+        "facebook",
+        "youtube",
         "instagram",
         "tiktok",
-        "youtube",
         "pinterest",
         "threads",
         "ameblo",
@@ -34,8 +35,7 @@
         "fc2",
         "hatena",
         "livedoor",
-        "mixi",
-        "facebook"
+        "mixi"
       ],
       "base_tags": [
         "筋トレ女子",
@@ -54,7 +54,8 @@
         "AIアート"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "uncensored",
@@ -114,7 +115,8 @@
         "AIイラスト"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "porn",
@@ -160,7 +162,8 @@
         "AI美女"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [],
       "caption_templates": [
@@ -185,47 +188,96 @@
       ]
     }
   },
+  "performance": {
+    "as_of": "2026-06-10",
+    "winners": [
+      "facebook",
+      "youtube"
+    ],
+    "dead_platforms": [
+      "ameblo",
+      "deviantart",
+      "fc2",
+      "hatena",
+      "instagram",
+      "livedoor",
+      "mixi",
+      "pawoo",
+      "pinterest",
+      "pixiv",
+      "rakuten",
+      "threads",
+      "tumblr",
+      "x"
+    ],
+    "platform_sessions_28d": {
+      "facebook": 2,
+      "youtube": 1,
+      "x": 0,
+      "tumblr": 0,
+      "pinterest": 0,
+      "instagram": 0,
+      "threads": 0,
+      "ameblo": 0,
+      "rakuten": 0,
+      "fc2": 0,
+      "hatena": 0,
+      "livedoor": 0,
+      "mixi": 0,
+      "pixiv": 0,
+      "deviantart": 0,
+      "pawoo": 0
+    },
+    "lane_sessions_28d": {
+      "safe_fitness": 3,
+      "mature_muscle": 0,
+      "adult_fanza": 0
+    },
+    "organic_sessions_28d": 13,
+    "fanza_clicks_28d": 2,
+    "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
+  },
   "intel": {
     "top_pages": [
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 2
+        "page_views_28d": 1053
+      },
+      {
+        "property": "adult",
+        "page_path": "/",
+        "page_views_28d": 71
       },
       {
         "property": "blog",
         "page_path": "/ai-tool-hub/",
-        "page_views_28d": 2
+        "page_views_28d": 11
       },
       {
         "property": "blog",
-        "page_path": "/armwrestling-girls-navi/",
-        "page_views_28d": 2
+        "page_path": "/lovable-guide/index.html",
+        "page_views_28d": 7
       },
       {
         "property": "blog",
-        "page_path": "/elevenlabs-guide/",
-        "page_views_28d": 2
+        "page_path": "/muscle-arrow-fit/",
+        "page_views_28d": 7
       },
       {
         "property": "blog",
-        "page_path": "/muscle-meal-girls/",
-        "page_views_28d": 2
+        "page_path": "/articles/iwatani-double-champion-2026.html",
+        "page_views_28d": 6
       },
       {
-        "property": "eronavi",
-        "page_path": "/eronavi/posts/2026-04-11-setokanna-osusume/",
-        "page_views_28d": 2
+        "property": "blog",
+        "page_path": "/joshi-prowrestling-navi/",
+        "page_views_28d": 6
       },
       {
-        "property": "adult",
-        "page_path": "/anime-navi/",
-        "page_views_28d": 1
-      },
-      {
-        "property": "adult",
-        "page_path": "/entsuma/",
-        "page_views_28d": 1
+        "property": "blog",
+        "page_path": "/lovable-guide/articles/2026lovable.html",
+        "page_views_28d": 5
       }
     ],
     "top_queries": [
@@ -236,13 +288,11 @@
       }
     ],
     "improvement_queue": [
-      "Analytics_DB_Ingest の失敗原因を調査し日次ingestを復旧する（最優先: 計測なき施策の禁止=憲法第6条）",
-      "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
-      "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
-      "ユーザー数が前期間比 -29.2% 減。流入元別の原因分析と新規記事投入"
+      "月商見込 107円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
+      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr, x。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
+      "勝ち媒体 facebook: 2セッション/28日。投稿頻度・タグ量を増やして増幅する",
+      "勝ち媒体 youtube: 1セッション/28日。投稿頻度・タグ量を増やして増幅する"
     ],
-    "kpi_warnings": [
-      "analytics.db が 32日 古い（最終 2026-05-10）。Analytics_DB_Ingest 停止疑い"
-    ]
+    "kpi_warnings": []
   }
 }
