@@ -1,0 +1,248 @@
+{
+  "generated_at": "2026-06-11 00:28:03 +0900",
+  "version": "20260611",
+  "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
+  "rules": {
+    "generic_trend_max": 1,
+    "hashlike_ban": true,
+    "lanes_must_not_mix": true,
+    "note": "uploaderは自レーンのみ読む。generic_trend_candidatesから使うのは最大1個。"
+  },
+  "ng_words_global": [
+    "アツロウ",
+    "あつろう",
+    "atsuro",
+    "atsurou",
+    "アツロー",
+    "GOOGLE_API_KEY"
+  ],
+  "generic_trend_candidates": [
+    "Claude",
+    "Fable",
+    "アトランティックサーモン"
+  ],
+  "lanes": {
+    "safe_fitness": {
+      "platforms": [
+        "instagram",
+        "tiktok",
+        "youtube",
+        "pinterest",
+        "threads",
+        "ameblo",
+        "rakuten",
+        "fc2",
+        "hatena",
+        "livedoor",
+        "mixi",
+        "facebook"
+      ],
+      "base_tags": [
+        "筋トレ女子",
+        "筋肉女子",
+        "フィットネス",
+        "ワークアウト",
+        "ボディメイク",
+        "musclegirl",
+        "fitnessmotivation",
+        "gymgirl",
+        "strongwomen",
+        "workoutmotivation",
+        "fitfam",
+        "calisthenics",
+        "AIイラスト",
+        "AIアート"
+      ],
+      "trend_tags": [
+        "AI"
+      ],
+      "ng_words": [
+        "uncensored",
+        "sexy",
+        "nude",
+        "porn",
+        "fetish",
+        "adult",
+        "nsfw",
+        "18禁",
+        "エロ",
+        "アダルト",
+        "無修正",
+        "裸"
+      ],
+      "caption_templates": [
+        "見てくれ、この圧。{tags}",
+        "今日の一枚、強い。{tags}",
+        "これは仕上がりエグい。{tags}",
+        "筋肉女子、やっぱ最高。{tags}",
+        "バキバキ。でも美しい。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
+        "継続は力なり。今日も積み上げ💪 {tags}",
+        "Strong is beautiful💪 {tags}",
+        "フォームも仕上がりも教科書級💪 {tags}",
+        "この背中、何年分の努力なんだ🔥 {tags}",
+        "モチベ落ちた日はこれ見て復活💪 {tags}"
+      ],
+      "cta_lines": [
+        "もっと見たい人はXへ → https://x.com/MuscleGirlLove7",
+        "まとめハブはこちら → https://musclelove-777.github.io/",
+        "フォローで毎日筋肉美が届く💪"
+      ],
+      "priority_urls": [
+        "https://musclelove-777.github.io/",
+        "https://x.com/MuscleGirlLove7"
+      ]
+    },
+    "mature_muscle": {
+      "platforms": [
+        "x",
+        "tumblr",
+        "misskey",
+        "deviantart",
+        "pixiv"
+      ],
+      "base_tags": [
+        "筋肉美",
+        "musclebeauty",
+        "femalemuscle",
+        "muscularwoman",
+        "fbb",
+        "筋肉美女",
+        "muscle",
+        "physique",
+        "flex",
+        "AIイラスト"
+      ],
+      "trend_tags": [
+        "AI"
+      ],
+      "ng_words": [
+        "porn",
+        "無修正",
+        "uncensored"
+      ],
+      "caption_templates": [
+        "見てくれ、この圧。{tags}",
+        "今日の一枚、強い。{tags}",
+        "これは仕上がりエグい。{tags}",
+        "筋肉女子、やっぱ最高。{tags}",
+        "バキバキ。でも美しい。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
+        "継続は力なり。今日も積み上げ💪 {tags}",
+        "Strong is beautiful💪 {tags}",
+        "しょーがないなぁ、特別に見せてあげる。{tags}",
+        "え、これ合法なの？レベル。{tags}",
+        "未公開はもっとすごい。{tags}"
+      ],
+      "cta_lines": [
+        "未公開・高解像度はPatreonで → https://www.patreon.com/MuscleGirlLove",
+        "X @MuscleGirlLove7 でほぼ毎日更新 → https://x.com/MuscleGirlLove7"
+      ],
+      "priority_urls": [
+        "https://www.patreon.com/MuscleGirlLove",
+        "https://x.com/MuscleGirlLove7",
+        "https://musclelove-777.github.io/"
+      ]
+    },
+    "adult_fanza": {
+      "platforms": [
+        "pawoo",
+        "boards",
+        "booru",
+        "endchan"
+      ],
+      "base_tags": [
+        "筋肉美女",
+        "マッスル",
+        "アスリート系",
+        "腹筋女子",
+        "FANZA",
+        "AI美女"
+      ],
+      "trend_tags": [
+        "AI"
+      ],
+      "ng_words": [],
+      "caption_templates": [
+        "見てくれ、この圧。{tags}",
+        "今日の一枚、強い。{tags}",
+        "これは仕上がりエグい。{tags}",
+        "筋肉女子、やっぱ最高。{tags}",
+        "バキバキ。でも美しい。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
+        "継続は力なり。今日も積み上げ💪 {tags}",
+        "Strong is beautiful💪 {tags}",
+        "全作品まとめはeronaviで。{tags}",
+        "今日の推し筋肉、保存推奨。{tags}"
+      ],
+      "cta_lines": [
+        "未公開はPatreon → https://www.patreon.com/MuscleGirlLove",
+        "作品ガイド・ランキングはeronaviで検索"
+      ],
+      "priority_urls": [
+        "https://www.patreon.com/MuscleGirlLove",
+        "https://musclelove-777.github.io/"
+      ]
+    }
+  },
+  "intel": {
+    "top_pages": [
+      {
+        "property": "blog",
+        "page_path": "/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "blog",
+        "page_path": "/ai-tool-hub/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "blog",
+        "page_path": "/armwrestling-girls-navi/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "blog",
+        "page_path": "/elevenlabs-guide/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "blog",
+        "page_path": "/muscle-meal-girls/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "eronavi",
+        "page_path": "/eronavi/posts/2026-04-11-setokanna-osusume/",
+        "page_views_28d": 2
+      },
+      {
+        "property": "adult",
+        "page_path": "/anime-navi/",
+        "page_views_28d": 1
+      },
+      {
+        "property": "adult",
+        "page_path": "/entsuma/",
+        "page_views_28d": 1
+      }
+    ],
+    "top_queries": [
+      {
+        "query": "エロナビ",
+        "clicks": 0,
+        "impressions": 10
+      }
+    ],
+    "improvement_queue": [
+      "Analytics_DB_Ingest の失敗原因を調査し日次ingestを復旧する（最優先: 計測なき施策の禁止=憲法第6条）",
+      "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
+      "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
+      "ユーザー数が前期間比 -29.2% 減。流入元別の原因分析と新規記事投入"
+    ],
+    "kpi_warnings": [
+      "analytics.db が 32日 古い（最終 2026-05-10）。Analytics_DB_Ingest 停止疑い"
+    ]
+  }
+}
