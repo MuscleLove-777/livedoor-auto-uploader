@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-06-11 08:41:30 +0900",
-  "version": "20260611",
+  "generated_at": "2026-06-12 09:12:13 +0900",
+  "version": "20260612",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
     "hashlike_ban": true,
     "lanes_must_not_mix": true,
-    "note": "uploaderは自レーンのみ読む。generic_trend_candidatesから使うのは最大1個。"
+    "note": "uploaderは自レーンのみ読む。generic_trend_candidatesから使うのは最大1個。",
+    "utm_guide": "発リンクには utm_source=<媒体名>&utm_medium=autopost を必ず付与する。pool_loader.as_insights(lane, platform=媒体名) がCTA内URLへ自動付与する。投稿にはハブor自ブログへの計測可能リンクを最低1本入れる。"
   },
   "ng_words_global": [
     "アツロウ",
@@ -17,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ミラノ",
-    "イラン",
-    "ジャンプ"
+    "サーバー",
+    "ビールサーバー",
+    "バリバリ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -55,7 +56,7 @@
       ],
       "trend_tags": [
         "AI",
-        "生成AI"
+        "筋肉"
       ],
       "ng_words": [
         "uncensored",
@@ -116,7 +117,7 @@
       ],
       "trend_tags": [
         "AI",
-        "生成AI"
+        "筋肉"
       ],
       "ng_words": [
         "porn",
@@ -163,7 +164,7 @@
       ],
       "trend_tags": [
         "AI",
-        "生成AI"
+        "筋肉"
       ],
       "ng_words": [],
       "caption_templates": [
