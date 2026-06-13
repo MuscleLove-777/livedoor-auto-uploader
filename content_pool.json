@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12 09:12:13 +0900",
-  "version": "20260612",
+  "generated_at": "2026-06-13 09:05:02 +0900",
+  "version": "20260613",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "サーバー",
-    "ビールサーバー",
-    "バリバリ"
+    "ミニマリスト",
+    "ゲーム",
+    "クールジャパン"
   ],
   "lanes": {
     "safe_fitness": {
@@ -56,6 +56,7 @@
       ],
       "trend_tags": [
         "AI",
+        "マッチョ",
         "筋肉"
       ],
       "ng_words": [
@@ -117,6 +118,7 @@
       ],
       "trend_tags": [
         "AI",
+        "マッチョ",
         "筋肉"
       ],
       "ng_words": [
@@ -164,6 +166,7 @@
       ],
       "trend_tags": [
         "AI",
+        "マッチョ",
         "筋肉"
       ],
       "ng_words": [],
@@ -190,9 +193,10 @@
     }
   },
   "performance": {
-    "as_of": "2026-06-10",
+    "as_of": "2026-06-11",
     "winners": [
       "facebook",
+      "x",
       "youtube"
     ],
     "dead_platforms": [
@@ -208,13 +212,12 @@
       "pixiv",
       "rakuten",
       "threads",
-      "tumblr",
-      "x"
+      "tumblr"
     ],
     "platform_sessions_28d": {
       "facebook": 2,
+      "x": 1,
       "youtube": 1,
-      "x": 0,
       "tumblr": 0,
       "pinterest": 0,
       "instagram": 0,
@@ -231,10 +234,10 @@
     },
     "lane_sessions_28d": {
       "safe_fitness": 3,
-      "mature_muscle": 0,
+      "mature_muscle": 1,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 13,
+    "organic_sessions_28d": 14,
     "fanza_clicks_28d": 2,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -243,7 +246,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 1053
+        "page_views_28d": 2783
       },
       {
         "property": "adult",
@@ -290,8 +293,9 @@
     ],
     "improvement_queue": [
       "月商見込 107円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
-      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr, x。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
+      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
       "勝ち媒体 facebook: 2セッション/28日。投稿頻度・タグ量を増やして増幅する",
+      "勝ち媒体 x: 1セッション/28日。投稿頻度・タグ量を増やして増幅する",
       "勝ち媒体 youtube: 1セッション/28日。投稿頻度・タグ量を増やして増幅する"
     ],
     "kpi_warnings": []
