@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22 08:00:07 +0900",
-  "version": "20260622",
+  "generated_at": "2026-06-23 08:00:07 +0900",
+  "version": "20260623",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "チュニジア",
-    "ジャンプ",
-    "チーム"
+    "Steam",
+    "ゲーム",
+    "フライ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -55,7 +55,8 @@
         "AIアート"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "uncensored",
@@ -115,7 +116,8 @@
         "AIイラスト"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "porn",
@@ -161,7 +163,8 @@
         "AI美女"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [],
       "caption_templates": [
@@ -187,7 +190,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-06-21",
+    "as_of": "2026-06-22",
     "winners": [
       "facebook",
       "x",
@@ -231,7 +234,7 @@
       "mature_muscle": 1,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 17,
+    "organic_sessions_28d": 15,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -240,7 +243,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3322
+        "page_views_28d": 3325
       },
       {
         "property": "adult",
