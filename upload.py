@@ -336,28 +336,80 @@ def save_uploaded_log(log_data):
 # ============================================================
 
 def download_media():
-    """Google Driveフォルダから画像ファイルをダウンロードする"""
+    """Google Driveフォルダから画像を1枚だけ取得する。
+
+    旧実装はフォルダ全体(1000枚超)を毎回DLしてGoogleのレート制限
+    ("Cannot retrieve the public link ... have had many accesses")に
+    当たり、途中で中断→未投稿画像が取れず空振りしていた。
+    対策として以下に変更:
+      1) skip_download=True でファイル一覧(id/path)だけ取得（本体DLしない）
+      2) 画像拡張子 & 未投稿のものから候補を作る
+      3) その候補から1枚だけ gdown.download でDL（失敗時は別候補を最大5回試行）
+    """
     dl_dir = "media"
     os.makedirs(dl_dir, exist_ok=True)
     url = f"https://drive.google.com/drive/folders/{GDRIVE_FOLDER_ID}"
-    print(f"Downloading from Google Drive: {url}")
-    try:
-        gdown.download_folder(url, output=dl_dir, quiet=False, remaining_ok=True)
-    except Exception as e:
-        print(f"Download error: {e}")
+    print(f"Listing Google Drive folder (no bulk download): {url}")
 
-    files = []
-    for root, dirs, filenames in os.walk(dl_dir):
-        for fname in filenames:
-            fpath = os.path.join(root, fname)
-            ext = os.path.splitext(fname)[1].lower()
-            if ext in IMAGE_EXTENSIONS:
-                size = os.path.getsize(fpath)
+    try:
+        listing = gdown.download_folder(
+            url, output=dl_dir, quiet=True, remaining_ok=True, skip_download=True
+        )
+    except Exception as e:
+        print(f"Folder listing error: {e}")
+        return []
+
+    if not listing:
+        print("Folder listing returned 0 entries")
+        return []
+
+    # 画像ファイルのみ抽出: (file_id, basename, local_path)
+    candidates = []
+    for f in listing:
+        path = getattr(f, "path", None) or getattr(f, "local_path", None) or ""
+        fid = getattr(f, "id", None)
+        local_path = getattr(f, "local_path", None) or os.path.join(dl_dir, os.path.basename(path))
+        ext = os.path.splitext(path)[1].lower()
+        if fid and ext in IMAGE_EXTENSIONS:
+            candidates.append((fid, os.path.basename(path), local_path))
+
+    print(f"Total image files in Drive: {len(candidates)}")
+    if not candidates:
+        return []
+
+    # 未投稿のみ（UPLOAD_ALL のときは全候補）
+    if os.environ.get("UPLOAD_ALL", "").lower() in ("1", "true", "yes"):
+        pool = candidates[:]
+    else:
+        log_data = load_uploaded_log()
+        uploaded_names = {
+            (entry["file"] if isinstance(entry, dict) else entry)
+            for entry in log_data.get("files", [])
+        }
+        pool = [c for c in candidates if c[1] not in uploaded_names]
+
+    print(f"Unposted candidates: {len(pool)} / Total images: {len(candidates)}")
+    if not pool:
+        return []
+
+    # 未投稿から1枚だけDL（失敗したら別候補で最大5回リトライ）
+    random.shuffle(pool)
+    for fid, fname, local_path in pool[:5]:
+        try:
+            os.makedirs(os.path.dirname(local_path) or dl_dir, exist_ok=True)
+            out = gdown.download(id=fid, output=local_path, quiet=False)
+            if out and os.path.exists(out):
+                size = os.path.getsize(out)
                 if size <= MAX_FILE_SIZE:
-                    files.append(fpath)
-                else:
-                    print(f"Skip (>10MB): {fname} ({size / 1024 / 1024:.1f}MB)")
-    return files
+                    print(f"Downloaded: {fname} ({size / 1024 / 1024:.1f}MB)")
+                    return [out]
+                print(f"Skip (>10MB): {fname} ({size / 1024 / 1024:.1f}MB)")
+            else:
+                print(f"Download returned no file: {fname}")
+        except Exception as e:
+            print(f"Single download failed ({fname}): {e} -- trying next")
+    print("All download attempts failed")
+    return []
 
 
 # ============================================================
