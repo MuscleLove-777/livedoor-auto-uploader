@@ -23,17 +23,18 @@ PATREON_LINK = "https://www.patreon.com/cw/MuscleLove?utm_source=livedoor"
 
 # --- FANZA(DMM)アフィリエイト（承認済みサイト: musclelove777.livedoor.blog / af_id: pinky2400-003） ---
 FANZA_AF_ID = "pinky2400-003"
-# al.dmm.co.jp 経由のアフィリ計測リンク。リンク先=FANZA動画トップ（af_idで成果計測）
+# al.dmm.co.jp 経由のアフィリ計測リンク。リンク先=FANZAで「腹筋」検索した結果
+# （腹筋が際立つ作品が並ぶ。ブログ名「腹筋フェチ」と合致 / af_idで成果計測）
 FANZA_LINK = (
-    "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fvideo.dmm.co.jp%2Fav%2F"
+    "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fvideo.dmm.co.jp%2Fav%2Flist%2F%3Fkeyword%3D%E8%85%B9%E7%AD%8B"
     f"&af_id={FANZA_AF_ID}&ch=link_tool&ch_id=text"
 )
 # 記事下部に差し込むFANZA CTAカード（PR表記=ステマ規制対応 / 18禁注記付き / rel=sponsored）
 FANZA_BLOCK_HTML = (
     '<div style="text-align:center; background:#2a0a12; padding:20px; border-radius:10px; margin:20px 0;">'
-    '<p style="font-size:1.25em; color:#ff4d6d;">🔞 もっと過激な筋肉美女が見たい人へ</p>'
+    '<p style="font-size:1.25em; color:#ff4d6d;">🔞 腹筋が際立つ作品をもっと見たい人へ</p>'
     f'<p style="font-size:1.1em;"><a href="{FANZA_LINK}" target="_blank" rel="noopener nofollow sponsored" '
-    'style="color:#ff8fa3; text-decoration:underline;">👉 FANZAで筋肉系の作品をチェック 👈</a></p>'
+    'style="color:#ff8fa3; text-decoration:underline;">👉 FANZAで腹筋エグい作品をチェック 👈</a></p>'
     '<p style="font-size:0.8em; color:#999;">※18歳未満は閲覧不可 ／ PR（アフィリエイト広告）</p>'
     '</div>'
 )
