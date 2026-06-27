@@ -38,26 +38,6 @@ FANZA_BLOCK_HTML = (
     '<p style="font-size:0.8em; color:#999;">※18歳未満は閲覧不可 ／ PR（アフィリエイト広告）</p>'
     '</div>'
 )
-
-# --- GA4計測（G-4T3BN30Z92）---
-# PCはlivedoorカスタムJS(head)で計測済み。スマホ版テンプレにはheadタグが出ないため、
-# 記事本文に「モバイルUAのときだけ」gtagを読み込むスクリプトを入れてスマホ記事ページを計測する。
-# UA判定でPCでは発火しない＝PC側のheadタグと二重計測にならない。__ga4_mlで多重実行も防止。
-GA4_MEASUREMENT_ID = "G-4T3BN30Z92"
-GA4_SP_BODY_HTML = (
-    '\n<!-- GA4 (SP only) -->\n'
-    '<script>(function(){'
-    'if(!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent))return;'
-    'if(window.__ga4_ml)return;window.__ga4_ml=1;'
-    'var s=document.createElement("script");s.async=true;'
-    f's.src="https://www.googletagmanager.com/gtag/js?id={GA4_MEASUREMENT_ID}";'
-    'document.head.appendChild(s);'
-    'window.dataLayer=window.dataLayer||[];'
-    'function gtag(){dataLayer.push(arguments);}'
-    'gtag("js",new Date());'
-    f'gtag("config","{GA4_MEASUREMENT_ID}");'
-    '})();</script>\n'
-)
 IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'}
 MAX_FILE_SIZE = 10 * 1024 * 1024  # ライブドアブログ画像上限: 10MB
 UPLOADED_LOG = "uploaded.json"
@@ -649,7 +629,7 @@ def build_blog_html(image_url, tags, file_path):
 
 <p style="color: #888; font-size: 0.85em;">{hashtag_html}</p>'''
 
-    html = html.rstrip() + build_affiliate_block() + build_backlink_block() + GA4_SP_BODY_HTML
+    html = html.rstrip() + build_affiliate_block() + build_backlink_block()
     return html, category
 
 
