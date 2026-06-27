@@ -20,6 +20,23 @@ LIVEDOOR_API_KEY = os.environ.get("LIVEDOOR_API_KEY", "")
 BLOG_NAME = os.environ.get("LIVEDOOR_BLOG_NAME", "")
 
 PATREON_LINK = "https://www.patreon.com/cw/MuscleLove?utm_source=livedoor"
+
+# --- FANZA(DMM)アフィリエイト（承認済みサイト: musclelove777.livedoor.blog / af_id: pinky2400-003） ---
+FANZA_AF_ID = "pinky2400-003"
+# al.dmm.co.jp 経由のアフィリ計測リンク。リンク先=FANZA動画トップ（af_idで成果計測）
+FANZA_LINK = (
+    "https://al.dmm.co.jp/?lurl=https%3A%2F%2Fvideo.dmm.co.jp%2Fav%2F"
+    f"&af_id={FANZA_AF_ID}&ch=link_tool&ch_id=text"
+)
+# 記事下部に差し込むFANZA CTAカード（PR表記=ステマ規制対応 / 18禁注記付き / rel=sponsored）
+FANZA_BLOCK_HTML = (
+    '<div style="text-align:center; background:#2a0a12; padding:20px; border-radius:10px; margin:20px 0;">'
+    '<p style="font-size:1.25em; color:#ff4d6d;">🔞 もっと過激な筋肉美女が見たい人へ</p>'
+    f'<p style="font-size:1.1em;"><a href="{FANZA_LINK}" target="_blank" rel="noopener nofollow sponsored" '
+    'style="color:#ff8fa3; text-decoration:underline;">👉 FANZAで筋肉系の作品をチェック 👈</a></p>'
+    '<p style="font-size:0.8em; color:#999;">※18歳未満は閲覧不可 ／ PR（アフィリエイト広告）</p>'
+    '</div>'
+)
 IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'}
 MAX_FILE_SIZE = 10 * 1024 * 1024  # ライブドアブログ画像上限: 10MB
 UPLOADED_LOG = "uploaded.json"
@@ -52,6 +69,17 @@ def build_backlink_block():
         )
     except Exception:
         return ""
+
+def build_affiliate_block():
+    """ボイカツ収益カード（買い物ポイント導線）をsafe_fitnessレーンから1枚挿入。
+    content_pool に成果リンク未登録なら空文字＝従来挙動のまま。絶対に死なない。"""
+    try:
+        from pool_loader import affiliate_card_html
+        return affiliate_card_html("safe_fitness", platform="livedoor", k=1)
+    except Exception as e:
+        print(f"[affiliate] skipped: {e}")
+        return ""
+
 
 # AtomPub API（旧版）ベースURL
 ATOM_BASE = "https://livedoor.blogcms.jp/atom/blog/{blog_name}"
@@ -594,11 +622,13 @@ def build_blog_html(image_url, tags, file_path):
 <p style="font-size: 0.9em; color: #ccc;">ここでしか見れない筋肉美をお届け中💪</p>
 </div>
 
+{FANZA_BLOCK_HTML}
+
 <p>&nbsp;</p>
 
 <p style="color: #888; font-size: 0.85em;">{hashtag_html}</p>'''
 
-    html = html.rstrip() + build_backlink_block()
+    html = html.rstrip() + build_affiliate_block() + build_backlink_block()
     return html, category
 
 
