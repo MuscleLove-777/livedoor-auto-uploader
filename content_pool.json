@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-28 09:21:57 +0900",
-  "version": "20260628",
+  "generated_at": "2026-06-29 08:00:07 +0900",
+  "version": "20260629",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ブラジル",
-    "コンビニ",
-    "LINE"
+    "ルール",
+    "イラン",
+    "ブラジル"
   ],
   "lanes": {
     "safe_fitness": {
@@ -190,7 +190,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-06-25",
+    "as_of": "2026-06-28",
     "winners": [
       "facebook",
       "x"
@@ -233,7 +233,7 @@
       "mature_muscle": 1,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 15,
+    "organic_sessions_28d": 13,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -242,7 +242,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3406
+        "page_views_28d": 3473
       },
       {
         "property": "adult",
@@ -266,17 +266,17 @@
       },
       {
         "property": "blog",
+        "page_path": "/articles/2026-04-04-izawa-queen.html",
+        "page_views_28d": 15
+      },
+      {
+        "property": "blog",
         "page_path": "/index.html",
-        "page_views_28d": 12
+        "page_views_28d": 13
       },
       {
         "property": "blog",
-        "page_path": "/articles/2026-04-04-ifa-world-championship-japan-2026.html",
-        "page_views_28d": 10
-      },
-      {
-        "property": "blog",
-        "page_path": "/basics/index.html",
+        "page_path": "/articles/2026-04-04-deep-jewels-rising.html",
         "page_views_28d": 10
       }
     ],
@@ -288,7 +288,6 @@
       }
     ],
     "improvement_queue": [
-      "Analytics_DB_Ingest の失敗原因を調査し日次ingestを復旧する（最優先: 計測なき施策の禁止=憲法第6条）",
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
       "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
@@ -296,8 +295,6 @@
       "勝ち媒体 x: 1セッション/28日。投稿頻度・タグ量を増やして増幅する",
       "FANZAクリック28日ゼロ。流入自体が無いのが主因。記事面のCTA改善より流入創出を優先する"
     ],
-    "kpi_warnings": [
-      "analytics.db が 3日 古い（最終 2026-06-25）。Analytics_DB_Ingest 停止疑い"
-    ]
+    "kpi_warnings": []
   }
 }
