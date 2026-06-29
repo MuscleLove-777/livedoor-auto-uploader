@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29 08:00:07 +0900",
-  "version": "20260629",
+  "generated_at": "2026-06-30 08:15:24 +0900",
+  "version": "20260630",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ルール",
-    "イラン",
-    "ブラジル"
+    "ブラジル",
+    "ジャンプ",
+    "オモコロ"
   ],
   "lanes": {
     "safe_fitness": {
