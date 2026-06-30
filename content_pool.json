@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-30 08:15:24 +0900",
-  "version": "20260630",
+  "generated_at": "2026-07-01 08:00:05 +0900",
+  "version": "20260701",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ブラジル",
     "ジャンプ",
-    "オモコロ"
+    "オモコロ",
+    "ブラジル"
   ],
   "lanes": {
     "safe_fitness": {
@@ -190,7 +190,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-06-28",
+    "as_of": "2026-06-29",
     "winners": [
       "facebook",
       "x"
@@ -242,7 +242,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3473
+        "page_views_28d": 3673
       },
       {
         "property": "adult",
@@ -251,8 +251,18 @@
       },
       {
         "property": "blog",
+        "page_path": "/ranking/index.html",
+        "page_views_28d": 39
+      },
+      {
+        "property": "blog",
         "page_path": "/articles/2026-04-04-arm-wrestling-technique-guide.html",
         "page_views_28d": 27
+      },
+      {
+        "property": "blog",
+        "page_path": "/articles/2026-04-04-izawa-queen.html",
+        "page_views_28d": 25
       },
       {
         "property": "blog",
@@ -261,23 +271,13 @@
       },
       {
         "property": "blog",
-        "page_path": "/elements/index.html",
-        "page_views_28d": 18
-      },
-      {
-        "property": "blog",
-        "page_path": "/articles/2026-04-04-izawa-queen.html",
-        "page_views_28d": 15
-      },
-      {
-        "property": "blog",
-        "page_path": "/index.html",
-        "page_views_28d": 13
+        "page_path": "/tools/diagnosis.html",
+        "page_views_28d": 20
       },
       {
         "property": "blog",
         "page_path": "/articles/2026-04-04-deep-jewels-rising.html",
-        "page_views_28d": 10
+        "page_views_28d": 19
       }
     ],
     "top_queries": [
