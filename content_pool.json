@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-01 08:00:05 +0900",
-  "version": "20260701",
+  "generated_at": "2026-07-02 08:00:05 +0900",
+  "version": "20260702",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ジャンプ",
-    "オモコロ",
-    "ブラジル"
+    "ゲーム",
+    "ディスク",
+    "PayPay"
   ],
   "lanes": {
     "safe_fitness": {
@@ -190,7 +190,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-06-29",
+    "as_of": "2026-06-30",
     "winners": [
       "facebook",
       "x"
@@ -233,7 +233,7 @@
       "mature_muscle": 1,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 13,
+    "organic_sessions_28d": 12,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -242,7 +242,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3673
+        "page_views_28d": 3828
       },
       {
         "property": "adult",
