@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07 08:28:33 +0900",
-  "version": "20260707",
+  "generated_at": "2026-07-08 08:00:08 +0900",
+  "version": "20260708",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ジャンプ",
-    "ポスト",
-    "kddi"
+    "ホルムズ",
+    "サッカー",
+    "フジテレビ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -189,7 +189,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-05",
+    "as_of": "2026-07-06",
     "winners": [
       "facebook"
     ],
@@ -243,7 +243,7 @@
       "mature_muscle": 1,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 11,
+    "organic_sessions_28d": 12,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -252,7 +252,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3055
+        "page_views_28d": 3010
       },
       {
         "property": "blog",
@@ -309,22 +309,23 @@
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.852,
-      "1e53ae32": 0.617,
-      "b8acef31": 1.852,
-      "18927481": 0.463,
-      "cce7b575": 1.852,
-      "923b3ad1": 0.617,
-      "3dc90978": 0.741,
-      "dd699064": 0.463,
-      "af375567": 0.617,
-      "64362e89": 0.926
+      "0d115b4f": 1.482,
+      "1e53ae32": 0.659,
+      "b8acef31": 1.976,
+      "18927481": 0.494,
+      "cce7b575": 1.482,
+      "923b3ad1": 0.659,
+      "3dc90978": 0.79,
+      "dd699064": 0.494,
+      "af375567": 0.659,
+      "64362e89": 0.988,
+      "65eb7bd5": 1.317
     }
   },
   "variant_intel": {
-    "as_of": "2026-07-07 08:28:33 +0900",
+    "as_of": "2026-07-08 08:00:08 +0900",
     "posts_with_variants": {
-      "tumblr": 15
+      "tumblr": 18
     },
     "weighted_kinds": [
       "tumblr.caption"
