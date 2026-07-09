@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-09 08:17:54 +0900",
-  "version": "20260709",
+  "generated_at": "2026-07-10 08:00:09 +0900",
+  "version": "20260710",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "イラン",
-    "ジャンプ",
-    "ツアー"
+    "Yahoo",
+    "イッヌー",
+    "オモコロ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -56,8 +56,8 @@
       ],
       "trend_tags": [
         "AI",
-        "美容",
-        "健康"
+        "姿勢",
+        "トレーニング"
       ],
       "ng_words": [
         "uncensored",
@@ -118,8 +118,8 @@
       ],
       "trend_tags": [
         "AI",
-        "美容",
-        "健康"
+        "姿勢",
+        "トレーニング"
       ],
       "ng_words": [
         "porn",
@@ -167,8 +167,8 @@
       ],
       "trend_tags": [
         "AI",
-        "美容",
-        "健康"
+        "姿勢",
+        "トレーニング"
       ],
       "ng_words": [],
       "caption_templates": [
@@ -195,16 +195,16 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-06",
+    "as_of": "2026-07-09",
     "winners": [
       "facebook"
     ],
     "blocked_platforms": {
       "x": {
         "status": "paused",
-        "sessions_28d": 1,
-        "sessions_prev28d": 0,
-        "measured_verdict": "alive",
+        "sessions_28d": 0,
+        "sessions_prev28d": 1,
+        "measured_verdict": "lost",
         "reason": "X auto-uploader is paused after repeated auth/app failures; do not increase cadence or treat historical t.co traffic as a current publish lane.",
         "allowed_modes": [
           "manual_dry_run"
@@ -228,7 +228,7 @@
     ],
     "platform_sessions_28d": {
       "facebook": 4,
-      "x": 1,
+      "x": 0,
       "youtube": 0,
       "tumblr": 0,
       "pinterest": 0,
@@ -246,10 +246,10 @@
     },
     "lane_sessions_28d": {
       "safe_fitness": 4,
-      "mature_muscle": 1,
+      "mature_muscle": 0,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 12,
+    "organic_sessions_28d": 10,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -258,7 +258,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 3010
+        "page_views_28d": 1158
       },
       {
         "property": "blog",
@@ -292,8 +292,8 @@
       },
       {
         "property": "blog",
-        "page_path": "/index.html",
-        "page_views_28d": 19
+        "page_path": "/elements/index.html",
+        "page_views_28d": 18
       }
     ],
     "top_queries": [
@@ -304,38 +304,37 @@
       }
     ],
     "improvement_queue": [
-      "Analytics_DB_Ingest の失敗原因を調査し日次ingestを復旧する（最優先: 計測なき施策の禁止=憲法第6条）",
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
       "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
       "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
       "勝ち媒体 facebook: 4セッション/28日。投稿頻度・タグ量を増やして増幅する",
+      "検索流入が28日で10セッションとほぼゼロ（Google: 0）。IndexNow再送とGSCサイトマップ/インデックス状況の確認をする",
       "FANZAクリック28日ゼロ。流入自体が無いのが主因。記事面のCTA改善より流入創出を優先する"
     ],
-    "kpi_warnings": [
-      "analytics.db が 3日 古い（最終 2026-07-06）。Analytics_DB_Ingest 停止疑い"
-    ]
+    "kpi_warnings": []
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.374,
-      "1e53ae32": 0.611,
-      "b8acef31": 2.748,
-      "18927481": 0.458,
-      "cce7b575": 1.832,
-      "923b3ad1": 0.611,
-      "3dc90978": 0.733,
-      "dd699064": 0.458,
-      "af375567": 0.611,
-      "64362e89": 0.733,
-      "65eb7bd5": 1.221,
-      "d1448a80": 0.611
+      "0d115b4f": 0.986,
+      "1e53ae32": 0.548,
+      "b8acef31": 2.301,
+      "18927481": 0.411,
+      "cce7b575": 1.644,
+      "923b3ad1": 0.548,
+      "3dc90978": 1.315,
+      "dd699064": 0.411,
+      "af375567": 0.548,
+      "64362e89": 1.644,
+      "65eb7bd5": 1.096,
+      "d1448a80": 0.548
     }
   },
   "variant_intel": {
-    "as_of": "2026-07-09 08:17:54 +0900",
+    "as_of": "2026-07-10 08:00:09 +0900",
     "posts_with_variants": {
-      "tumblr": 21
+      "tumblr": 24,
+      "rakuten": 1
     },
     "weighted_kinds": [
       "tumblr.caption"
