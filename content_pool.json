@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-14 08:00:13 +0900",
-  "version": "20260714",
+  "generated_at": "2026-07-15 08:00:15 +0900",
+  "version": "20260715",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -19,8 +19,8 @@
   ],
   "generic_trend_candidates": [
     "ジャンプ",
-    "イラン",
-    "カップヌードル"
+    "アニメ",
+    "ソレドコ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -56,6 +56,7 @@
       ],
       "trend_tags": [
         "AI",
+        "栄養",
         "ダイエット"
       ],
       "ng_words": [
@@ -117,6 +118,7 @@
       ],
       "trend_tags": [
         "AI",
+        "栄養",
         "ダイエット"
       ],
       "ng_words": [
@@ -165,6 +167,7 @@
       ],
       "trend_tags": [
         "AI",
+        "栄養",
         "ダイエット"
       ],
       "ng_words": [],
@@ -192,9 +195,10 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-13",
+    "as_of": "2026-07-14",
     "winners": [
-      "facebook"
+      "facebook",
+      "tumblr"
     ],
     "blocked_platforms": {
       "x": {
@@ -220,14 +224,13 @@
       "pinterest",
       "pixiv",
       "rakuten",
-      "threads",
-      "tumblr"
+      "threads"
     ],
     "platform_sessions_28d": {
       "facebook": 2,
+      "tumblr": 1,
       "x": 0,
       "youtube": 0,
-      "tumblr": 0,
       "pinterest": 0,
       "instagram": 0,
       "threads": 0,
@@ -243,7 +246,7 @@
     },
     "lane_sessions_28d": {
       "safe_fitness": 2,
-      "mature_muscle": 0,
+      "mature_muscle": 1,
       "adult_fanza": 0
     },
     "organic_sessions_28d": 11,
@@ -255,17 +258,12 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 1112
+        "page_views_28d": 996
       },
       {
         "property": "blog",
         "page_path": "/ranking/index.html",
         "page_views_28d": 39
-      },
-      {
-        "property": "blog",
-        "page_path": "/articles/2026-04-04-arm-wrestling-technique-guide.html",
-        "page_views_28d": 27
       },
       {
         "property": "blog",
@@ -281,6 +279,11 @@
         "property": "blog",
         "page_path": "/tools/diagnosis.html",
         "page_views_28d": 20
+      },
+      {
+        "property": "blog",
+        "page_path": "/articles/2026-04-04-arm-wrestling-technique-guide.html",
+        "page_views_28d": 19
       },
       {
         "property": "blog",
@@ -303,27 +306,29 @@
     "improvement_queue": [
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
+      "ユーザー数が前期間比 -63.3% 減。流入元別の原因分析と新規記事投入",
       "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
-      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads, tumblr。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
+      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
       "勝ち媒体 facebook: 2セッション/28日。投稿頻度・タグ量を増やして増幅する",
+      "勝ち媒体 tumblr: 1セッション/28日。投稿頻度・タグ量を増やして増幅する",
       "FANZAクリック28日ゼロ。流入自体が無いのが主因。記事面のCTA改善より流入創出を優先する"
     ],
     "kpi_warnings": []
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.052,
-      "1e53ae32": 0.526,
-      "b8acef31": 1.841,
-      "18927481": 0.526,
-      "cce7b575": 1.578,
-      "923b3ad1": 0.947,
-      "3dc90978": 1.052,
-      "dd699064": 0.316,
-      "af375567": 1.183,
-      "64362e89": 1.402,
-      "65eb7bd5": 1.052,
-      "d1448a80": 0.526
+      "0d115b4f": 0.648,
+      "1e53ae32": 3.4,
+      "b8acef31": 1.511,
+      "18927481": 0.378,
+      "cce7b575": 1.133,
+      "923b3ad1": 0.68,
+      "3dc90978": 0.756,
+      "dd699064": 0.378,
+      "af375567": 0.85,
+      "64362e89": 1.133,
+      "65eb7bd5": 0.756,
+      "d1448a80": 0.378
     },
     "youtube.title": {
       "e0e12957": 1.067,
@@ -341,16 +346,32 @@
       "fe6dbc36": 1.154,
       "532d2222": 0.692,
       "0b7c18b4": 1.154
+    },
+    "rakuten.title": {
+      "39d014c5": 1.0,
+      "d00860f3": 1.0,
+      "ed29c19d": 1.0,
+      "f26b1b6e": 1.0,
+      "f83f4007": 1.0
+    },
+    "rakuten.body": {
+      "7830c70e": 1.067,
+      "54869f81": 0.8,
+      "874d5b75": 1.067,
+      "be8c956b": 1.067
     }
   },
   "variant_intel": {
-    "as_of": "2026-07-14 08:00:13 +0900",
+    "as_of": "2026-07-15 08:00:15 +0900",
     "posts_with_variants": {
-      "tumblr": 36,
+      "tumblr": 39,
+      "deviantart": 2,
       "youtube": 5,
-      "rakuten": 4
+      "rakuten": 5
     },
     "weighted_kinds": [
+      "rakuten.body",
+      "rakuten.title",
       "tumblr.caption",
       "youtube.cta",
       "youtube.desc",
