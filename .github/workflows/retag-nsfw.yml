@@ -1,0 +1,44 @@
+name: NSFW Retag (one-off)
+
+# 既存記事のタイトルに「NSFW - 」を後付けする手動実行ジョブ。
+# 対象IDは retag_targets.txt。まず dry_run=true で変更予定を確認し、
+# limit=1 で1件だけ本番→目視確認→limit空で全件、の運用を想定。
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "true=PUTせず変更予定の表示のみ / false=本番更新"
+        type: boolean
+        default: true
+      limit:
+        description: "先頭N件だけ処理（空=全件）。本番前の1件検証用に 1 を推奨"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  retag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run retag
+        env:
+          LIVEDOOR_USER_ID: ${{ secrets.LIVEDOOR_USER_ID }}
+          LIVEDOOR_API_KEY: ${{ secrets.LIVEDOOR_API_KEY }}
+          LIVEDOOR_BLOG_NAME: ${{ secrets.LIVEDOOR_BLOG_NAME }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          RETAG_LIMIT: ${{ inputs.limit }}
+        run: python retag_nsfw.py
