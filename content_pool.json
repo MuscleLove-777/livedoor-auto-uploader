@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-18 08:09:44 +0900",
-  "version": "20260718",
+  "generated_at": "2026-07-19 08:00:18 +0900",
+  "version": "20260719",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "コピー",
-    "ジャンプ",
-    "シール"
+    "シール",
+    "サイト",
+    "ゲーム"
   ],
   "lanes": {
     "safe_fitness": {
@@ -56,7 +56,7 @@
       ],
       "trend_tags": [
         "AI",
-        "グラビア",
+        "生成AI",
         "ボディビル"
       ],
       "ng_words": [
@@ -118,7 +118,7 @@
       ],
       "trend_tags": [
         "AI",
-        "グラビア",
+        "生成AI",
         "ボディビル"
       ],
       "ng_words": [
@@ -167,7 +167,7 @@
       ],
       "trend_tags": [
         "AI",
-        "グラビア",
+        "生成AI",
         "ボディビル"
       ],
       "ng_words": [],
@@ -195,7 +195,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-14",
+    "as_of": "2026-07-18",
     "winners": [
       "facebook",
       "tumblr"
@@ -203,9 +203,9 @@
     "blocked_platforms": {
       "x": {
         "status": "paused",
-        "sessions_28d": 0,
+        "sessions_28d": 1,
         "sessions_prev28d": 1,
-        "measured_verdict": "lost",
+        "measured_verdict": "alive",
         "reason": "X auto-uploader is paused after repeated auth/app failures; do not increase cadence or treat historical t.co traffic as a current publish lane.",
         "allowed_modes": [
           "manual_dry_run"
@@ -227,9 +227,9 @@
       "threads"
     ],
     "platform_sessions_28d": {
-      "facebook": 2,
+      "facebook": 4,
+      "x": 1,
       "tumblr": 1,
-      "x": 0,
       "youtube": 0,
       "pinterest": 0,
       "instagram": 0,
@@ -245,11 +245,11 @@
       "pawoo": 0
     },
     "lane_sessions_28d": {
-      "safe_fitness": 2,
-      "mature_muscle": 1,
+      "safe_fitness": 4,
+      "mature_muscle": 2,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 11,
+    "organic_sessions_28d": 14,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -258,7 +258,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 996
+        "page_views_28d": 682
       },
       {
         "property": "blog",
@@ -268,12 +268,7 @@
       {
         "property": "blog",
         "page_path": "/articles/2026-04-04-izawa-queen.html",
-        "page_views_28d": 25
-      },
-      {
-        "property": "blog",
-        "page_path": "/tools/builder.html",
-        "page_views_28d": 21
+        "page_views_28d": 22
       },
       {
         "property": "blog",
@@ -282,18 +277,23 @@
       },
       {
         "property": "blog",
-        "page_path": "/articles/2026-04-04-arm-wrestling-technique-guide.html",
-        "page_views_28d": 19
+        "page_path": "/tools/compare.html",
+        "page_views_28d": 18
       },
       {
         "property": "blog",
         "page_path": "/articles/2026-04-04-deep-jewels-rising.html",
-        "page_views_28d": 19
+        "page_views_28d": 17
       },
       {
         "property": "blog",
-        "page_path": "/elements/index.html",
-        "page_views_28d": 18
+        "page_path": "/groups/detail.html",
+        "page_views_28d": 14
+      },
+      {
+        "property": "blog",
+        "page_path": "/articles/2026-04-04-rena-comeback.html",
+        "page_views_28d": 13
       }
     ],
     "top_queries": [
@@ -304,34 +304,31 @@
       }
     ],
     "improvement_queue": [
-      "Analytics_DB_Ingest の失敗原因を調査し日次ingestを復旧する（最優先: 計測なき施策の禁止=憲法第6条）",
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
-      "ユーザー数が前期間比 -63.3% 減。流入元別の原因分析と新規記事投入",
+      "ユーザー数が前期間比 -66.6% 減。流入元別の原因分析と新規記事投入",
       "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
       "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
-      "勝ち媒体 facebook: 2セッション/28日。投稿頻度・タグ量を増やして増幅する",
+      "勝ち媒体 facebook: 4セッション/28日。投稿頻度・タグ量を増やして増幅する",
       "勝ち媒体 tumblr: 1セッション/28日。投稿頻度・タグ量を増やして増幅する",
       "FANZAクリック28日ゼロ。流入自体が無いのが主因。記事面のCTA改善より流入創出を優先する"
     ],
-    "kpi_warnings": [
-      "analytics.db が 4日 古い（最終 2026-07-14）。Analytics_DB_Ingest 停止疑い"
-    ]
+    "kpi_warnings": []
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.098,
-      "1e53ae32": 2.04,
-      "b8acef31": 1.412,
-      "18927481": 0.366,
-      "cce7b575": 0.879,
-      "923b3ad1": 0.659,
-      "3dc90978": 0.732,
-      "dd699064": 0.628,
-      "af375567": 1.318,
-      "64362e89": 1.22,
-      "65eb7bd5": 1.373,
-      "d1448a80": 0.275
+      "0d115b4f": 1.19,
+      "1e53ae32": 2.041,
+      "b8acef31": 1.36,
+      "18927481": 0.272,
+      "cce7b575": 0.952,
+      "923b3ad1": 0.571,
+      "3dc90978": 0.952,
+      "dd699064": 0.544,
+      "af375567": 1.333,
+      "64362e89": 1.164,
+      "65eb7bd5": 1.143,
+      "d1448a80": 0.476
     },
     "youtube.title": {
       "e0e12957": 1.067,
@@ -351,28 +348,30 @@
       "0b7c18b4": 1.154
     },
     "rakuten.title": {
-      "39d014c5": 0.928,
-      "d00860f3": 1.237,
-      "ed29c19d": 0.619,
-      "f26b1b6e": 0.742,
-      "f83f4007": 1.237,
-      "5387d317": 1.237
+      "39d014c5": 0.876,
+      "d00860f3": 1.168,
+      "ed29c19d": 0.584,
+      "f26b1b6e": 0.701,
+      "f83f4007": 1.168,
+      "5387d317": 1.168,
+      "de4f6d3f": 1.168,
+      "53d40f29": 1.168
     },
     "rakuten.body": {
-      "7830c70e": 1.351,
-      "54869f81": 0.811,
-      "874d5b75": 0.676,
-      "be8c956b": 0.811,
-      "05a02d48": 1.351
+      "7830c70e": 1.493,
+      "54869f81": 0.746,
+      "874d5b75": 0.746,
+      "be8c956b": 0.896,
+      "05a02d48": 1.119
     }
   },
   "variant_intel": {
-    "as_of": "2026-07-18 08:09:44 +0900",
+    "as_of": "2026-07-19 08:00:18 +0900",
     "posts_with_variants": {
-      "tumblr": 48,
+      "tumblr": 51,
       "deviantart": 2,
       "youtube": 5,
-      "rakuten": 12
+      "rakuten": 14
     },
     "weighted_kinds": [
       "rakuten.body",
