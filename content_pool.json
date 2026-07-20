@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-20 08:00:09 +0900",
-  "version": "20260720",
+  "generated_at": "2026-07-21 08:00:08 +0900",
+  "version": "20260721",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -18,9 +18,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "スペイン",
-    "シール",
-    "Qiita"
+    "ジャンプ",
+    "メニュー",
+    "ベトナム"
   ],
   "lanes": {
     "safe_fitness": {
@@ -55,7 +55,8 @@
         "AIアート"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "uncensored",
@@ -115,7 +116,8 @@
         "AIイラスト"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [
         "porn",
@@ -162,7 +164,8 @@
         "AI美女"
       ],
       "trend_tags": [
-        "AI"
+        "AI",
+        "生成AI"
       ],
       "ng_words": [],
       "caption_templates": [
@@ -189,7 +192,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-18",
+    "as_of": "2026-07-20",
     "winners": [
       "facebook",
       "tumblr"
@@ -243,7 +246,7 @@
       "mature_muscle": 2,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 14,
+    "organic_sessions_28d": 15,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
@@ -252,7 +255,7 @@
       {
         "property": "blog",
         "page_path": "/",
-        "page_views_28d": 682
+        "page_views_28d": 611
       },
       {
         "property": "blog",
@@ -300,7 +303,7 @@
     "improvement_queue": [
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
-      "ユーザー数が前期間比 -66.6% 減。流入元別の原因分析と新規記事投入",
+      "ユーザー数が前期間比 -74.8% 減。流入元別の原因分析と新規記事投入",
       "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
       "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
       "勝ち媒体 facebook: 4セッション/28日。投稿頻度・タグ量を増やして増幅する",
@@ -311,18 +314,29 @@
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.313,
-      "1e53ae32": 2.046,
-      "b8acef31": 1.364,
-      "18927481": 0.273,
-      "cce7b575": 0.955,
-      "923b3ad1": 0.573,
-      "3dc90978": 1.114,
-      "dd699064": 0.546,
-      "af375567": 1.337,
-      "64362e89": 1.167,
-      "65eb7bd5": 0.835,
-      "d1448a80": 0.477
+      "0d115b4f": 1.309,
+      "1e53ae32": 2.04,
+      "b8acef31": 1.36,
+      "18927481": 0.272,
+      "cce7b575": 0.793,
+      "923b3ad1": 0.408,
+      "3dc90978": 1.111,
+      "dd699064": 0.544,
+      "af375567": 1.333,
+      "64362e89": 1.164,
+      "65eb7bd5": 1.19,
+      "d1448a80": 0.476
+    },
+    "deviantart.title": {
+      "24de42a3": 1.846,
+      "8f3fc275": 1.087,
+      "c53568a4": 0.744,
+      "debd7c78": 1.588,
+      "45dac961": 0.558,
+      "3573b8f1": 0.744,
+      "35c78f47": 0.944,
+      "af35135e": 0.744,
+      "dd9d4530": 0.744
     },
     "youtube.title": {
       "e0e12957": 1.067,
@@ -342,34 +356,36 @@
       "0b7c18b4": 1.154
     },
     "rakuten.title": {
-      "39d014c5": 0.847,
-      "d00860f3": 1.13,
-      "ed29c19d": 0.565,
-      "f26b1b6e": 0.678,
-      "f83f4007": 1.13,
-      "5387d317": 1.13,
-      "de4f6d3f": 1.13,
-      "53d40f29": 1.13,
-      "6535f78c": 1.13,
-      "07c649e5": 1.13
+      "39d014c5": 0.838,
+      "d00860f3": 1.117,
+      "ed29c19d": 0.558,
+      "f26b1b6e": 0.67,
+      "f83f4007": 1.117,
+      "5387d317": 1.117,
+      "de4f6d3f": 1.117,
+      "53d40f29": 1.117,
+      "6535f78c": 1.117,
+      "07c649e5": 1.117,
+      "edd7de36": 1.117
     },
     "rakuten.body": {
-      "7830c70e": 1.573,
-      "54869f81": 0.674,
-      "874d5b75": 0.787,
-      "be8c956b": 0.787,
-      "05a02d48": 1.18
+      "7830c70e": 1.6,
+      "54869f81": 0.6,
+      "874d5b75": 0.8,
+      "be8c956b": 0.8,
+      "05a02d48": 1.2
     }
   },
   "variant_intel": {
-    "as_of": "2026-07-20 08:00:09 +0900",
+    "as_of": "2026-07-21 08:00:08 +0900",
     "posts_with_variants": {
-      "tumblr": 54,
-      "deviantart": 2,
+      "tumblr": 57,
+      "deviantart": 13,
       "youtube": 5,
-      "rakuten": 16
+      "rakuten": 17
     },
     "weighted_kinds": [
+      "deviantart.title",
       "rakuten.body",
       "rakuten.title",
       "tumblr.caption",
