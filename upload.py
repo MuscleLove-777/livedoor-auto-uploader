@@ -42,27 +42,8 @@ FANZA_BLOCK_HTML = (
 IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'}
 MAX_FILE_SIZE = 10 * 1024 * 1024  # ライブドアブログ画像上限: 10MB
 UPLOADED_LOG = "uploaded.json"
-
-# --- NSFW画像フィルタ（ブログ掲載ポリシー） ---
-# セクシー止まり（マイクロビキニ/ワキ見せ/水着ポーズ等）はOK。
-# ファイル名/フォルダ名に露骨な行為・露出を示すタグを含むものは投稿しない。
-# ※ファイル名で判定できない無名ファイル(frame_0047.png等)は通す（素材側で管理）。
-NSFW_BLOCK_TERMS = [
-    'nsfw', 'r18', 'r-18', 'xxx', 'hentai', 'ecchi',
-    'sex', 'fuck', 'fella', 'blowjob', 'handjob', 'paizuri', 'titjob',
-    'cum', 'bukkake', 'creampie', 'orgasm', 'ahegao',
-    'penis', 'peniss', 'cock', 'dick', 'pussy', 'vagina', 'genital',
-    'nipple', 'areola', 'topless', 'nude', 'naked', 'no bra', 'no panties',
-    'insertion', 'dildo', 'vibrator', 'bondage', 'shibari', 'gangbang',
-    'spread legs', 'spread pussy', 'masturbat', 'squirt', 'mosaic',
-    'licking armpit', 'armpit lick', 'armpit hold', 'armpit fucking',
-]
-
-
-def is_safe_image(path_or_name):
-    """NSFWタグを含むファイル名/パスを除外（含まなければ安全側で通す）"""
-    s = str(path_or_name).lower().replace('_', ' ').replace('-', ' ')
-    return not any(term in s for term in NSFW_BLOCK_TERMS)
+# 画像ポリシー: この媒体はエロ全開OK（NSFWフィルタなし・2026-07-23ユーザー決定）。
+# 微エロ止まりのフィルタが必要なのは hatena-auto-uploader 側。
 
 # --- MuscleLove バックリンクプール（フィットネス系のみ。一般プラットフォーム配慮） ---
 ML_BACKLINK_POOL_FITNESS = [
@@ -512,19 +493,15 @@ def download_media():
 
     # 画像ファイルのみ抽出: (file_id, basename, local_path)
     candidates = []
-    nsfw_skipped = 0
     for f in listing:
         path = getattr(f, "path", None) or getattr(f, "local_path", None) or ""
         fid = getattr(f, "id", None)
         local_path = getattr(f, "local_path", None) or os.path.join(dl_dir, os.path.basename(path))
         ext = os.path.splitext(path)[1].lower()
         if fid and ext in IMAGE_EXTENSIONS:
-            if not is_safe_image(path):
-                nsfw_skipped += 1
-                continue
             candidates.append((fid, os.path.basename(path), local_path))
 
-    print(f"Total image files in Drive: {len(candidates)} (NSFW-filtered out: {nsfw_skipped})")
+    print(f"Total image files in Drive: {len(candidates)}")
     if not candidates:
         return []
 
