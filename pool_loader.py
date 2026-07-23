@@ -11,6 +11,7 @@ x_account_insights.json 互換の形式に変換する as_insights() を使え�
 """
 import json
 import re
+import random
 from pathlib import Path
 
 HUB_URL = "https://musclelove-777.github.io/content_pool.json"
@@ -93,3 +94,55 @@ def as_insights(lane: str, platform: str = "") -> dict:
     if ng:
         ins["avoid_tags"] = ng
     return ins
+
+
+def affiliate_cards(lane: str) -> list:
+    """レーンのアフィリ成果カード（買い物ポイント導線）を返す。空なら[]。"""
+    pool = load_pool(lane)
+    cards = pool.get("affiliate_cards") or []
+    return [c for c in cards if isinstance(c, dict) and str(c.get("url", "")).strip()]
+
+
+def affiliate_card_html(lane: str, platform: str = "", k: int = 1) -> str:
+    """記事末尾に差し込むアフィリカードHTMLを返す（重み付きランダムk枚・冪等マーカー付き）。
+    カード未登録なら空文字（＝何も出さない安全フォールバック）。
+    注: アフィリリンクは外部ASPの成果トラッカーなので自社UTMは付与しない
+    （楽天リンク等は末尾改変で壊れるため。platform引数は将来用に残す）。"""
+    cards = affiliate_cards(lane)
+    if not cards:
+        return ""
+    weights = [max(1, int(c.get("weight", 1) or 1)) for c in cards]
+    k = max(1, min(k, len(cards)))
+    # 重複なしで重み付き抽出
+    pool = cards[:]
+    w = weights[:]
+    picked = []
+    for _ in range(k):
+        if not pool:
+            break
+        idx = random.choices(range(len(pool)), weights=w, k=1)[0]
+        picked.append(pool.pop(idx))
+        w.pop(idx)
+    blocks = []
+    for c in picked:
+        url = str(c.get("url", "")).strip()
+        label = str(c.get("label", "")).strip() or "おすすめアイテム"
+        img = str(c.get("img", "")).strip()
+        img_html = (
+            f'<a href="{url}" target="_blank" rel="nofollow noopener sponsored">'
+            f'<img src="{img}" alt="{label}" style="max-width:100%;border-radius:8px;" /></a><br/>'
+            if img else ""
+        )
+        blocks.append(
+            f'<div style="border:1px solid #eee;border-radius:10px;padding:14px;margin:14px 0;background:#fafafa;">'
+            f'{img_html}'
+            f'<a href="{url}" target="_blank" rel="nofollow noopener sponsored" '
+            f'style="font-weight:bold;color:#c0392b;text-decoration:none;">{label} ＞</a>'
+            f'<div style="font-size:0.8em;color:#999;margin-top:4px;">※広告</div>'
+            f'</div>'
+        )
+    return (
+        "\n<!-- ML_AFFILIATE -->\n"
+        + "\n".join(blocks)
+        + "\n<!-- /ML_AFFILIATE -->\n"
+    )

@@ -4,3 +4,22 @@ images/
 test_*
 *.png
 media/
+
+
+# auto-defense (weekly sweep)
+.env
+.env.*
+!.env.example
+credentials*.json
+token*.json
+client_secret*.json
+service_account*.json
+*.pem
+*.key
+*.cookie
+*_cookies.json
+cookies.txt
+
+# local preview artifacts
+dry_run_*
+*.csv
