@@ -6,6 +6,7 @@ AtomPub API（旧版）を使用
 """
 import sys, json, os, random, time, hashlib, base64, datetime, re
 from xml.etree import ElementTree as ET
+from xml.sax import saxutils
 
 import requests
 import gdown
@@ -705,6 +706,75 @@ def is_nsfw_source(file_path):
 
 
 # ============================================================
+# 記事カテゴリの自動判定
+# ライブドアは <category term="..."> に未登録の名前を送るとカテゴリ側が自動生成される。
+# ただしDriveのフォルダ名をそのまま流すとカテゴリが無限に増えて意味を失うので、
+# 「この固定リストからしか選ばない」方式にして表記ゆれを封じる。
+# ============================================================
+
+DEFAULT_CATEGORY = "腹筋・筋肉美"
+
+CATEGORY_RULES = [
+    # (カテゴリ名, 舞台/見どころ/パスのどれかに含まれれば採用するキーワード)
+    ('マイクロビキニ', ['マイクロビキニ', 'ひもビキニ', 'micro bikini', 'string bikini']),
+    ('水着・ビキニ', ['ビキニ', '水着', 'bikini', 'swimsuit']),
+    ('プール・ビーチ', ['プール', 'ビーチ', 'pool', 'beach']),
+    ('温泉', ['温泉', 'onsen', 'hot spring']),
+    ('ジム・トレーニング', ['ジム', 'ロッカールーム', 'gym', 'training', 'workout',
+                            'スクワット', 'squat', 'pullups', '懸垂']),
+    ('ポージング', ['ステージ', 'フレックスポーズ', 'ダブルバイセップス', 'ポージング',
+                    'posing', 'flex', 'double biceps', 'stage']),
+    ('バキバキ腹筋', ['バキバキ腹筋', '腹筋', 'abs', 'six pack']),
+    ('褐色・日焼け肌', ['こんがり焼けた褐色肌', '日焼け肌', 'tanned', 'oil', 'オイル肌']),
+    ('ギャル系', ['ギャル系', 'gyaru', 'japanese gal']),
+    ('屋外・街中', ['屋外', '街中', 'ルーフトップ', 'outdoor', 'outside', 'city', 'rooftop']),
+]
+
+
+def decide_categories(file_path, places=None, feats=None, max_count=2):
+    """画像のシーン情報とパスから記事カテゴリを自動で決める。
+
+    返すのは最大2件。NSFW素材なら先頭に "NSFW" を置いて、
+    カテゴリ側からも成人向けを切り分けられるようにする。
+    どのルールにも当たらなければブログの主題カテゴリを付ける
+    （＝カテゴリ無しの記事は出さない）。
+    """
+    places = places or []
+    feats = feats or []
+    path_s = str(file_path or '').lower().replace('\\', '/').replace('_', ' ').replace('-', ' ')
+    haystack = ' '.join([path_s] + places + feats).lower()
+
+    cats = []
+    if is_nsfw_source(file_path):
+        cats.append('NSFW')
+    for name, keys in CATEGORY_RULES:
+        if name in cats:
+            continue
+        if any(k.lower() in haystack for k in keys):
+            cats.append(name)
+
+    if not [c for c in cats if c != 'NSFW']:
+        cats.append(DEFAULT_CATEGORY)
+    return cats[:max_count]
+
+
+def fetch_existing_categories():
+    """ブログに登録済みのカテゴリ名一覧。取得できなければ空リスト（判定には使わない）。"""
+    try:
+        endpoint = ATOM_BASE.format(blog_name=BLOG_NAME) + '/category'
+        headers = get_headers(LIVEDOOR_USER_ID, LIVEDOOR_API_KEY)
+        r = requests.get(endpoint, headers=headers, timeout=30)
+        if r.status_code != 200:
+            return []
+        root = ET.fromstring(r.text)
+        return [c.get('term', '') for c in root.iter()
+                if c.tag.endswith('category') and c.get('term')]
+    except Exception as e:
+        print(f"Category list skipped: {e}")
+        return []
+
+
+# ============================================================
 # ライブドアブログ画像アップロード
 # ============================================================
 
@@ -780,11 +850,18 @@ def upload_image(image_path):
 # ============================================================
 
 def build_article_xml(title, body_html, category=None, draft=False):
-    """AtomPub形式の記事XMLを構築"""
+    """AtomPub形式の記事XMLを構築（category は文字列でもリストでも可）"""
     draft_val = 'yes' if draft else 'no'
-    category_xml = ''
-    if category:
-        category_xml = f'  <category term="{category}" />'
+    if not category:
+        cats = []
+    elif isinstance(category, str):
+        cats = [category]
+    else:
+        cats = list(category)
+    # term は属性値なので必ずエスケープする（& や " を含む名前で壊れないように）
+    category_xml = '\n'.join(
+        f'  <category term="{saxutils.quoteattr(c)[1:-1]}" />' for c in cats if c
+    )
 
     xml = f'''<?xml version="1.0" encoding="utf-8"?>
 <entry xmlns="http://www.w3.org/2005/Atom"
@@ -868,19 +945,36 @@ X（旧Twitter）@MuscleGirlLove7 でほぼ毎日更新中！
 
 
 def post_article(title, body_html, category=None):
-    """記事をライブドアブログに投稿"""
+    """記事をライブドアブログに投稿
+
+    カテゴリは複数指定できるが、API側が複数を受けない場合に投稿ごと失敗させたくないので、
+    「全カテゴリ → 先頭1件のみ → カテゴリ無し」の順で自動的に落として再試行する。
+    """
     endpoint = ATOM_BASE.format(blog_name=BLOG_NAME) + '/article'
-
-    xml = build_article_xml(title, body_html, category=category, draft=False)
-
     headers = get_headers(LIVEDOOR_USER_ID, LIVEDOOR_API_KEY)
 
-    print(f"\nPosting article: {title}")
-    r = requests.post(endpoint, data=xml.encode('utf-8'), headers=headers, timeout=60)
+    if not category:
+        attempts = [None]
+    elif isinstance(category, str):
+        attempts = [category, None]
+    else:
+        cats = [c for c in category if c]
+        attempts = [cats] + ([cats[:1]] if len(cats) > 1 else []) + [None]
 
-    if r.status_code not in (200, 201):
-        print(f"Post failed: {r.status_code}")
+    print(f"\nPosting article: {title}")
+    r = None
+    for i, cat in enumerate(attempts):
+        xml = build_article_xml(title, body_html, category=cat, draft=False)
+        r = requests.post(endpoint, data=xml.encode('utf-8'), headers=headers, timeout=60)
+        if r.status_code in (200, 201):
+            print(f"  Category applied: {cat if cat else '(none)'}")
+            break
+        print(f"Post failed: {r.status_code} (category={cat})")
         print(f"  Response: {r.text[:500]}")
+        if i < len(attempts) - 1:
+            print("  Retrying with fewer categories...")
+
+    if r is None or r.status_code not in (200, 201):
         return None
 
     # レスポンスから記事URLを抽出
@@ -1019,12 +1113,16 @@ def main():
     if is_nsfw_source(selected) and not title.lstrip().upper().startswith("NSFW"):
         title = f"NSFW - {template}"
 
+    # カテゴリ自動付与。フォルダ名をそのまま出すのではなく、
+    # シーン情報から固定リストのカテゴリを選ぶ（未登録名はライブドア側で自動生成される）。
+    categories = decide_categories(selected, places, feats)
+
     print(f"Title: {title}")
     print(f"Tags: {', '.join(tags[:10])}...")
-    print(f"Category: {category}")
+    print(f"Category: {' / '.join(categories)} (folder={category})")
 
     # Step 3: 記事投稿
-    article_url = post_article(title, body_html, category=None)
+    article_url = post_article(title, body_html, category=categories)
 
     if not article_url:
         print("Article post failed!")
