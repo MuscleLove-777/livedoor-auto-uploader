@@ -1,0 +1,52 @@
+name: Backfill article categories
+
+# 公開済み記事にカテゴリを遡って付ける一括処理。
+# 既定は dry-run（レポートだけ）。apply=true で実際にカテゴリを付与する。
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: '実際にカテゴリを付与する（false ならレポートのみ）'
+        type: boolean
+        default: false
+      force:
+        description: '既にカテゴリがある記事も上書きする'
+        type: boolean
+        default: false
+      limit:
+        description: '処理する記事数の上限（0=全件）'
+        type: string
+        default: '0'
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run backfill
+        env:
+          LIVEDOOR_USER_ID: ${{ secrets.LIVEDOOR_USER_ID }}
+          LIVEDOOR_API_KEY: ${{ secrets.LIVEDOOR_API_KEY }}
+          LIVEDOOR_BLOG_NAME: ${{ secrets.LIVEDOOR_BLOG_NAME }}
+          APPLY: ${{ inputs.apply && '1' || '0' }}
+          FORCE: ${{ inputs.force && '1' || '0' }}
+          BACKFILL_LIMIT: ${{ inputs.limit }}
+        run: python backfill_categories.py
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backfill-categories-report
+          path: backfill_categories_report.csv
