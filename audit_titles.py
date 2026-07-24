@@ -49,39 +49,85 @@ PREFIX = "NSFW - "
 PREFIX_RE = re.compile(r"(?i)^\s*(not[\s_\-]*)?nsfw[\s:：\-ー–—]*")
 
 
+MAX_PAGES = int(os.environ.get("AUDIT_MAX_PAGES", "50") or "50")
+
+
+def _ids_in_feed(xml_text):
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError as e:
+        print(f"Feed parse error: {e}")
+        return [], None
+    ids = []
+    for entry in root.findall(f"{{{ATOM_NS}}}entry"):
+        eid = entry.findtext(f"{{{ATOM_NS}}}id") or ""
+        m = re.search(r"(\d{5,})", eid)
+        if not m:
+            for link in entry.findall(f"{{{ATOM_NS}}}link"):
+                if link.get("rel") in ("edit", "service.edit"):
+                    m = re.search(r"(\d{5,})", link.get("href", ""))
+                    break
+        if m:
+            ids.append(m.group(1))
+    nxt = None
+    for link in root.findall(f"{{{ATOM_NS}}}link"):
+        if link.get("rel") == "next" and link.get("href"):
+            nxt = link.get("href")
+            break
+    return ids, nxt
+
+
+def _ids_from_uploaded_log(path="uploaded.json"):
+    """投稿ログに残っている記事URLからもIDを拾う（フィードが古い分を返さない対策）。"""
+    ids = []
+    try:
+        import json
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        for e in data.get("files", []):
+            if isinstance(e, dict) and e.get("article_url"):
+                m = re.search(r"(\d{5,})", e["article_url"])
+                if m:
+                    ids.append(m.group(1))
+    except Exception as e:
+        print(f"uploaded.json skipped: {e}")
+    return ids
+
+
 def iter_entries():
-    """記事フィードを辿って (article_id, entry_xml) を順に返す。"""
-    url = ATOM_BASE.format(blog_name=BLOG_NAME) + "/article"
+    """記事IDを全件返す。フィードのページ送り＋投稿ログの両方から集めて重複除去。
+
+    ライブドアのフィードは rel=next を返さないことがあるので、
+    その場合は ?page=N を進めて新しいIDが出なくなるまで辿る。
+    """
+    base = ATOM_BASE.format(blog_name=BLOG_NAME) + "/article"
     headers = get_headers(LIVEDOOR_USER_ID, LIVEDOOR_API_KEY)
-    seen_pages = set()
-    while url and url not in seen_pages:
-        seen_pages.add(url)
+    seen = set()
+    out = []
+
+    url, page = base, 1
+    while url and page <= MAX_PAGES:
         r = requests.get(url, headers=headers, timeout=60)
         if r.status_code != 200:
             print(f"Feed GET failed: {r.status_code} {r.text[:200]}")
-            return
-        try:
-            root = ET.fromstring(r.text)
-        except ET.ParseError as e:
-            print(f"Feed parse error: {e}")
-            return
-        for entry in root.findall(f"{{{ATOM_NS}}}entry"):
-            eid = entry.findtext(f"{{{ATOM_NS}}}id") or ""
-            m = re.search(r"(\d{5,})", eid)
-            if not m:
-                # id が無い場合は edit リンクから拾う
-                for link in entry.findall(f"{{{ATOM_NS}}}link"):
-                    if link.get("rel") in ("edit", "service.edit"):
-                        m = re.search(r"(\d{5,})", link.get("href", ""))
-                        break
-            if m:
-                yield m.group(1)
-        url = None
-        for link in root.findall(f"{{{ATOM_NS}}}link"):
-            if link.get("rel") == "next" and link.get("href"):
-                url = link.get("href")
-                break
+            break
+        ids, nxt = _ids_in_feed(r.text)
+        fresh = [i for i in ids if i not in seen]
+        for i in fresh:
+            seen.add(i)
+            out.append(i)
+        print(f"  feed page {page}: {len(ids)} entries ({len(fresh)} new)")
+        if not fresh:
+            break
+        page += 1
+        url = nxt or f"{base}?page={page}"
         time.sleep(SLEEP)
+
+    for i in _ids_from_uploaded_log():
+        if i not in seen:
+            seen.add(i)
+            out.append(i)
+    return out
 
 
 def member_url(article_id):
