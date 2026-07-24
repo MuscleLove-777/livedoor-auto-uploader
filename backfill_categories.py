@@ -116,8 +116,13 @@ def main():
     mode = "本番（PUTで更新）" if APPLY else "DRY-RUN（PUTしない）"
     print(f"=== 過去記事カテゴリ付与: {mode}{' / 既存カテゴリも上書き' if FORCE else ''} ===\n")
 
-    ids = list(iter_entries())
-    print(f"対象記事: {len(ids)} 件")
+    # フィードのページ送りは同じ記事を複数回返すことがあるので、順序を保ったまま重複を除く
+    ids, seen = [], set()
+    for aid in iter_entries():
+        if aid not in seen:
+            seen.add(aid)
+            ids.append(aid)
+    print(f"対象記事: {len(ids)} 件（重複除去後）")
     if LIMIT > 0:
         ids = ids[:LIMIT]
         print(f"（BACKFILL_LIMIT により先頭 {len(ids)} 件のみ処理）")
