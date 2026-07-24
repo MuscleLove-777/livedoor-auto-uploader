@@ -1,3 +1,5 @@
 requests
 gdown<6
 pytrends
+# NSFW判定（画像の中身を見る）。モデル(320n.onnx 12MB)はwheel同梱＝実行時DLなし
+nudenet>=3.4,<4

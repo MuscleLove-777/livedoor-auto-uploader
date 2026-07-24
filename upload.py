@@ -11,6 +11,12 @@ from xml.sax import saxutils
 import requests
 import gdown
 
+try:
+    from nsfw_detect import classify_image
+except Exception as _e:  # モジュール自体が壊れていても投稿は止めない
+    print(f"nsfw_detect import failed: {_e}")
+    classify_image = None
+
 # ============================================================
 # 設定
 # ============================================================
@@ -682,27 +688,35 @@ def sanitize_category(name, max_len=30):
     return name if name else "Muscle"
 
 
-# アダルト区分マーカー（元画像のDriveフォルダ名/ファイル名から推定）。
-# 安全マーカー（not nsfw / sfw / safe / 健全）が最優先で False。
-_NSFW_SAFE_RE = re.compile(r'(?i)(not[\s_\-]*nsfw|\bsfw\b|\bsafe\b|健全|着衣のみ)')
-_NSFW_HIT_RE = re.compile(r'(?i)(nsfw|nude|naked|topless|hadaka|全裸|ヌード|トップレス|18禁|r-?18|adult|エロ)')
+# ============================================================
+# NSFW判定（2026-07-24 改修）
+#
+# 旧実装は「パスに nsfw/adult/エロ 等の語が入っているか」で判定していた。
+# ところが素材ライブラリのフォルダ名自体がNSFW系だったため、
+# マイクロビキニ止まりの画像まで全部 "NSFW - " が付き、
+# RSS上でほぼ全記事がNSFW表記＝警告が意味を成さない状態になっていた。
+#
+# 現行: 画像の中身を nsfw_detect（nudenet/ONNX）で見て、
+#       胸・性器の露出（＝ヌード相当）だけをNSFWとする。
+#       尻や脇の露出はこのブランドの通常域なのでNSFWにしない。
+#       判定不能時のみファイル名の露骨ワードにフォールバック。
+# ============================================================
+
+def judge_nsfw(file_path):
+    """(is_nsfw, detail_dict) を返す。detail は表示・ログ用。"""
+    if classify_image is None:
+        return False, {"available": False, "reasons": [], "swimwear": False, "top": []}
+    try:
+        d = classify_image(file_path)
+    except Exception as e:
+        print(f"NSFW detection error (treated as safe): {e}")
+        return False, {"available": False, "reasons": [], "swimwear": False, "top": []}
+    return bool(d.get("nsfw")), d
 
 
 def is_nsfw_source(file_path):
-    """元画像のパス（Driveフォルダ名/ファイル名）にアダルト区分マーカーがあるか。
-
-    タイトルの「NSFW - 」接頭辞は本来カテゴリ（フォルダ名）依存で、
-    (1) NSFW以外の名前のフォルダに入ったヌード、(2) 50字超で接頭辞脱落、
-    の2経路で無警告公開が起きていた。この関数で元パスを直接見て判定し、
-    呼び出し側で確実に接頭辞を付けるための保険にする。
-    'not nsfw' 等の安全マーカーがあれば False を優先。判定不能は False。
-    ※注意: マーカーの無いフォルダに置かれたヌードは検知できない。
-      恒久対策は「ヌードは必ず NSFW 名のフォルダへ」という元データ側の運用徹底。
-    """
-    p = (file_path or "").replace('\\', '/')
-    if _NSFW_SAFE_RE.search(p):
-        return False
-    return bool(_NSFW_HIT_RE.search(p))
+    """後方互換用の薄いラッパ（旧名で参照している箇所向け）。"""
+    return judge_nsfw(file_path)[0]
 
 
 # ============================================================
@@ -731,27 +745,42 @@ CATEGORY_RULES = [
 ]
 
 
-def decide_categories(file_path, places=None, feats=None, max_count=2):
-    """画像のシーン情報とパスから記事カテゴリを自動で決める。
+def decide_categories(file_path, places=None, feats=None, max_count=2,
+                      nsfw=None, detection=None):
+    """画像のシーン情報・画像判定結果から記事カテゴリを自動で決める。
 
-    返すのは最大2件。NSFW素材なら先頭に "NSFW" を置いて、
+    返すのは最大2件。ヌード相当なら先頭に "NSFW" を置いて、
     カテゴリ側からも成人向けを切り分けられるようにする。
     どのルールにも当たらなければブログの主題カテゴリを付ける
     （＝カテゴリ無しの記事は出さない）。
+
+    nsfw / detection は main 側で1回だけ推論した結果を渡す（二重推論を避ける）。
     """
     places = places or []
     feats = feats or []
+    detection = detection or {}
     path_s = str(file_path or '').lower().replace('\\', '/').replace('_', ' ').replace('-', ' ')
+    # フォルダ名（ライブラリ名）は素材の中身を表さないのでカテゴリ判定から外し、
+    # ファイル名（生成プロンプトが残っている場合がある）だけを見る。
+    path_s = os.path.basename(path_s)
     haystack = ' '.join([path_s] + places + feats).lower()
 
+    if nsfw is None:
+        nsfw, detection = judge_nsfw(file_path)
+
     cats = []
-    if is_nsfw_source(file_path):
+    if nsfw:
         cats.append('NSFW')
     for name, keys in CATEGORY_RULES:
         if name in cats:
             continue
         if any(k.lower() in haystack for k in keys):
             cats.append(name)
+
+    # ファイル名が無名（undefined_image(12).png 等）でもカテゴリを出せるように、
+    # 画像判定で水着着用が見えていれば「水着・ビキニ」を充てる。
+    if not [c for c in cats if c != 'NSFW'] and detection.get('swimwear'):
+        cats.append('水着・ビキニ')
 
     if not [c for c in cats if c != 'NSFW']:
         cats.append(DEFAULT_CATEGORY)
@@ -1096,26 +1125,35 @@ def main():
         if t not in tags:
             tags.insert(0, t)
 
+    # 画像の中身を1回だけ判定（NSFW接頭辞とカテゴリの両方でこの結果を使う）
+    nsfw, detection = judge_nsfw(selected)
+    if detection.get('available'):
+        print(f"NSFW check: {'NSFW' if nsfw else 'safe'} "
+              f"reasons={detection.get('reasons') or '-'} top={detection.get('top')}")
+    else:
+        print(f"NSFW check: detector unavailable → filename fallback "
+              f"({'NSFW' if nsfw else 'safe'})")
+
     # タイトル生成（舞台タグがあれば【夜プール】等を冠して具体性を出す）
+    # ※フォルダ名を接頭辞にするのは廃止。ライブラリのフォルダ名が "NSFW" だったため
+    #   ビキニ止まりの記事にまで "NSFW - " が付き、警告として機能しなくなっていた。
     template = random.choice(TITLE_TEMPLATES)
     if places:
         title = f"【{places[0]}】{template}"
-    elif category != "Muscle":
-        title = f"{category} - {template}"
     else:
         title = template
     if len(title) > 50:
         title = template
 
-    # NSFW警告の付与（保険）: 元画像のフォルダ/ファイル名がアダルト区分なら、
-    # カテゴリ由来の接頭辞が付いていなくても（50字超で脱落しても）必ず先頭に付ける。
-    # これで「ヌードなのに無警告公開」を防ぐ。既にNSFW始まりなら二重付与しない。
-    if is_nsfw_source(selected) and not title.lstrip().upper().startswith("NSFW"):
+    # NSFW警告の付与: 画像判定でヌード相当だったときだけ先頭に付ける。
+    # 50字超で接頭辞が落ちないよう、テンプレ本体だけを残して付け直す。
+    if nsfw and not title.lstrip().upper().startswith("NSFW"):
         title = f"NSFW - {template}"
 
     # カテゴリ自動付与。フォルダ名をそのまま出すのではなく、
-    # シーン情報から固定リストのカテゴリを選ぶ（未登録名はライブドア側で自動生成される）。
-    categories = decide_categories(selected, places, feats)
+    # シーン情報＋画像判定から固定リストのカテゴリを選ぶ（未登録名はライブドア側で自動生成）。
+    categories = decide_categories(selected, places, feats,
+                                   nsfw=nsfw, detection=detection)
 
     print(f"Title: {title}")
     print(f"Tags: {', '.join(tags[:10])}...")

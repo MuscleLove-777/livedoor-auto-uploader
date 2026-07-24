@@ -1,0 +1,47 @@
+name: Audit NSFW titles
+
+# 公開済み記事のNSFW接頭辞を、画像の中身を見て付け直す監査。
+# 既定は dry-run（レポートだけ）。apply=true で実際にタイトルを更新する。
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: '実際にタイトルを更新する（false ならレポートのみ）'
+        type: boolean
+        default: false
+      limit:
+        description: '処理する記事数の上限（0=全件）'
+        type: string
+        default: '0'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run audit
+        env:
+          LIVEDOOR_USER_ID: ${{ secrets.LIVEDOOR_USER_ID }}
+          LIVEDOOR_API_KEY: ${{ secrets.LIVEDOOR_API_KEY }}
+          LIVEDOOR_BLOG_NAME: ${{ secrets.LIVEDOOR_BLOG_NAME }}
+          APPLY: ${{ inputs.apply && '1' || '0' }}
+          AUDIT_LIMIT: ${{ inputs.limit }}
+        run: python audit_titles.py
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-titles-report
+          path: audit_titles_report.csv
