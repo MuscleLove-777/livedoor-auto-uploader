@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-01 08:44:16 +0900",
-  "version": "20260801",
+  "generated_at": "2026-08-03 08:17:51 +0900",
+  "version": "20260803",
   "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
   "rules": {
     "generic_trend_max": 1,
@@ -20,9 +20,9 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ゲーム",
-    "ブログ",
-    "ブラシ"
+    "イオンモール",
+    "ジャンプ",
+    "ゴルフ"
   ],
   "lanes": {
     "safe_fitness": {
@@ -197,7 +197,7 @@
     }
   },
   "performance": {
-    "as_of": "2026-07-30",
+    "as_of": "2026-08-01",
     "winners": [
       "facebook",
       "tumblr"
@@ -205,7 +205,7 @@
     "blocked_platforms": {
       "x": {
         "status": "paused",
-        "sessions_28d": 3,
+        "sessions_28d": 4,
         "sessions_prev28d": 1,
         "measured_verdict": "alive",
         "reason": "X auto-uploader is paused after repeated auth/app failures; do not increase cadence or treat historical t.co traffic as a current publish lane.",
@@ -229,7 +229,7 @@
       "threads"
     ],
     "platform_sessions_28d": {
-      "x": 3,
+      "x": 4,
       "facebook": 2,
       "tumblr": 1,
       "pinterest": 0,
@@ -247,17 +247,17 @@
     },
     "lane_sessions_28d": {
       "safe_fitness": 2,
-      "mature_muscle": 4,
+      "mature_muscle": 5,
       "adult_fanza": 0
     },
-    "organic_sessions_28d": 28,
+    "organic_sessions_28d": 31,
     "fanza_clicks_28d": 0,
     "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
   },
   "platform_focus": {
     "x": {
       "lane": "mature_muscle",
-      "sessions_28d": 3,
+      "sessions_28d": 4,
       "status": "paused",
       "action": "hold",
       "cadence_hint": "manual_dry_run_only"
@@ -385,7 +385,7 @@
       {
         "property": "blog",
         "page_path": "/ai-tool-hub/",
-        "page_views_28d": 5
+        "page_views_28d": 6
       },
       {
         "property": "eronavi",
@@ -400,17 +400,17 @@
       {
         "property": "blog",
         "page_path": "/antigravity-guide/articles/antigravity-recommended-settings-extensions-2026.html",
-        "page_views_28d": 3
+        "page_views_28d": 4
       },
       {
         "property": "blog",
-        "page_path": "/muscle-flappy/index.html",
-        "page_views_28d": 3
+        "page_path": "/armwrestling-girls-navi/",
+        "page_views_28d": 4
       },
       {
-        "property": "adult",
-        "page_path": "/vr-eros/tags/明里つむぎ/",
-        "page_views_28d": 2
+        "property": "blog",
+        "page_path": "/female-physique-queens/",
+        "page_views_28d": 3
       }
     ],
     "top_queries": [
@@ -423,7 +423,7 @@
     "improvement_queue": [
       "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
       "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
-      "ユーザー数が前期間比 -49.4% 減。流入元別の原因分析と新規記事投入",
+      "ユーザー数が前期間比 -45.9% 減。流入元別の原因分析と新規記事投入",
       "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
       "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
       "勝ち媒体 facebook: 2セッション/28日。投稿頻度・タグ量を増やして増幅する",
@@ -434,104 +434,107 @@
   },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 1.141,
-      "1e53ae32": 1.354,
-      "b8acef31": 1.245,
-      "18927481": 0.587,
-      "cce7b575": 0.978,
-      "923b3ad1": 0.623,
-      "3dc90978": 1.223,
-      "dd699064": 0.856,
-      "af375567": 1.467,
-      "64362e89": 1.156,
-      "65eb7bd5": 0.978,
-      "d1448a80": 0.391
+      "0d115b4f": 1.165,
+      "1e53ae32": 1.355,
+      "b8acef31": 1.271,
+      "18927481": 0.599,
+      "cce7b575": 0.888,
+      "923b3ad1": 0.636,
+      "3dc90978": 0.999,
+      "dd699064": 0.777,
+      "af375567": 1.498,
+      "64362e89": 1.415,
+      "65eb7bd5": 0.999,
+      "d1448a80": 0.399
     },
     "deviantart.title": {
-      "24de42a3": 1.04,
-      "8f3fc275": 0.613,
-      "c53568a4": 0.516,
-      "debd7c78": 0.895,
-      "45dac961": 0.605,
-      "3573b8f1": 0.419,
-      "35c78f47": 0.75,
-      "af35135e": 0.419,
-      "dd9d4530": 1.0,
-      "6415952f": 0.895,
-      "aaef222e": 0.677,
-      "b21f49eb": 0.903,
-      "211c19b9": 2.342,
-      "d8c1492c": 1.774,
-      "30c0f212": 1.387,
-      "4f013b5a": 2.258,
-      "23483c98": 0.516,
-      "6390b548": 1.193,
-      "62516698": 1.58,
-      "8ba95630": 1.58,
-      "c50ea32a": 0.605,
+      "24de42a3": 1.003,
+      "8f3fc275": 0.591,
+      "c53568a4": 0.498,
+      "debd7c78": 0.863,
+      "45dac961": 0.583,
+      "3573b8f1": 0.404,
+      "35c78f47": 0.723,
+      "af35135e": 0.404,
+      "dd9d4530": 0.964,
+      "6415952f": 1.213,
+      "aaef222e": 1.283,
+      "b21f49eb": 0.964,
+      "211c19b9": 2.594,
+      "d8c1492c": 1.711,
+      "30c0f212": 1.338,
+      "4f013b5a": 2.1,
+      "23483c98": 0.498,
+      "6390b548": 1.151,
+      "62516698": 1.618,
+      "8ba95630": 1.524,
+      "c50ea32a": 0.583,
       "d24b5592": 0.25,
-      "05dbbfa9": 0.71,
-      "ba14c775": 1.0,
-      "c6fb9091": 0.806,
-      "51c7ec92": 1.29
+      "05dbbfa9": 0.778,
+      "ba14c775": 0.964,
+      "c6fb9091": 1.283,
+      "51c7ec92": 1.897,
+      "8d1cea7f": 0.25,
+      "8b652ebf": 0.25
     },
     "youtube.title": {
-      "e0e12957": 1.067,
-      "4a0cdd28": 0.8,
-      "f6092e4e": 1.067,
-      "b1b5df34": 0.8,
-      "29b2f257": 1.28,
-      "177d303b": 0.92,
-      "2c4804e0": 1.067
+      "e0e12957": 1.137,
+      "4a0cdd28": 0.71,
+      "f6092e4e": 1.137,
+      "b1b5df34": 0.853,
+      "29b2f257": 1.364,
+      "177d303b": 0.98,
+      "2c4804e0": 0.682,
+      "9a6b0229": 1.137
     },
     "youtube.desc": {
-      "a6b65dcd": 0.679,
-      "6fad0332": 1.181,
-      "ce2ac9ae": 1.181,
-      "a1e9fe2e": 0.851,
-      "549568fa": 1.108
+      "a6b65dcd": 0.687,
+      "6fad0332": 1.394,
+      "ce2ac9ae": 1.045,
+      "a1e9fe2e": 1.003,
+      "549568fa": 0.871
     },
     "youtube.cta": {
-      "fe6dbc36": 1.121,
-      "532d2222": 0.757,
-      "0b7c18b4": 1.121
+      "fe6dbc36": 1.345,
+      "532d2222": 0.908,
+      "0b7c18b4": 0.747
     },
     "rakuten.title": {
-      "39d014c5": 0.756,
-      "d00860f3": 1.26,
-      "ed29c19d": 0.42,
-      "f26b1b6e": 0.756,
-      "f83f4007": 0.945,
-      "5387d317": 0.756,
-      "de4f6d3f": 1.26,
-      "53d40f29": 0.945,
-      "6535f78c": 1.26,
-      "07c649e5": 1.26,
-      "edd7de36": 0.756,
-      "a9cae8f6": 0.756,
-      "4635d56f": 1.26,
-      "28105c8a": 0.945,
-      "95080833": 0.945,
-      "489bf883": 1.26,
-      "be604b2f": 0.945,
-      "645fae18": 1.26,
-      "412f2855": 1.26
+      "39d014c5": 0.795,
+      "d00860f3": 1.326,
+      "ed29c19d": 0.442,
+      "f26b1b6e": 0.795,
+      "f83f4007": 0.994,
+      "5387d317": 0.795,
+      "de4f6d3f": 0.994,
+      "53d40f29": 0.994,
+      "6535f78c": 1.326,
+      "07c649e5": 1.326,
+      "edd7de36": 0.663,
+      "a9cae8f6": 0.795,
+      "4635d56f": 1.326,
+      "28105c8a": 0.994,
+      "95080833": 0.994,
+      "489bf883": 1.326,
+      "be604b2f": 0.795,
+      "645fae18": 0.994,
+      "412f2855": 1.326
     },
     "rakuten.body": {
-      "7830c70e": 1.385,
-      "54869f81": 0.882,
-      "874d5b75": 0.882,
-      "be8c956b": 0.882,
-      "05a02d48": 0.97
+      "7830c70e": 1.32,
+      "54869f81": 0.96,
+      "874d5b75": 0.88,
+      "be8c956b": 0.96,
+      "05a02d48": 0.88
     }
   },
   "variant_intel": {
-    "as_of": "2026-08-01 08:44:16 +0900",
+    "as_of": "2026-08-03 08:17:51 +0900",
     "posts_with_variants": {
-      "tumblr": 90,
-      "deviantart": 35,
-      "youtube": 11,
-      "rakuten": 40
+      "tumblr": 96,
+      "deviantart": 39,
+      "youtube": 15,
+      "rakuten": 44
     },
     "weighted_kinds": [
       "deviantart.title",
