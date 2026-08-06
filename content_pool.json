@@ -1,7 +1,6 @@
 {
-  "generated_at": "2026-08-06 09:21:26 +0900",
-  "version": "20260806",
-  "goal_note": "2026年 月商目標 300,000円 / 進捗 0.0% / 国是: 2031年 年商1億円",
+  "generated_at": "2026-08-07 08:00:10 +0900",
+  "version": "20260807",
   "rules": {
     "generic_trend_max": 1,
     "hashlike_ban": true,
@@ -20,17 +19,15 @@
     "GOOGLE_API_KEY"
   ],
   "generic_trend_candidates": [
-    "ゲーム",
-    "ジャンプ",
-    "プレイハウスエリナ"
+    "デジタル",
+    "スーパー",
+    "ソレドコ"
   ],
   "lanes": {
     "safe_fitness": {
       "platforms": [
         "facebook",
         "instagram",
-        "tiktok",
-        "youtube",
         "pinterest",
         "threads",
         "ameblo",
@@ -38,7 +35,9 @@
         "fc2",
         "hatena",
         "livedoor",
-        "mixi"
+        "mixi",
+        "tiktok",
+        "youtube"
       ],
       "base_tags": [
         "筋トレ女子",
@@ -57,7 +56,6 @@
         "AIアート"
       ],
       "trend_tags": [
-        "ダイエット",
         "AI"
       ],
       "ng_words": [
@@ -86,7 +84,7 @@
         "これは仕上がりエグい。{tags}",
         "筋肉女子、やっぱ最高。{tags}",
         "バキバキ。でも美しい。{tags}",
-        "このダイエット×筋肉美、刺さる人には刺さる。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
         "継続は力なり。今日も積み上げ💪 {tags}",
         "Strong is beautiful💪 {tags}",
         "フォームも仕上がりも教科書級💪 {tags}",
@@ -107,9 +105,9 @@
     "mature_muscle": {
       "platforms": [
         "tumblr",
-        "misskey",
         "deviantart",
-        "pixiv"
+        "pixiv",
+        "misskey"
       ],
       "base_tags": [
         "筋肉美",
@@ -124,7 +122,6 @@
         "AIイラスト"
       ],
       "trend_tags": [
-        "ダイエット",
         "AI"
       ],
       "ng_words": [
@@ -138,7 +135,7 @@
         "これは仕上がりエグい。{tags}",
         "筋肉女子、やっぱ最高。{tags}",
         "バキバキ。でも美しい。{tags}",
-        "このダイエット×筋肉美、刺さる人には刺さる。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
         "継続は力なり。今日も積み上げ💪 {tags}",
         "Strong is beautiful💪 {tags}",
         "しょーがないなぁ、特別に見せてあげる。{tags}",
@@ -172,7 +169,6 @@
         "AI美女"
       ],
       "trend_tags": [
-        "ダイエット",
         "AI"
       ],
       "ng_words": [],
@@ -182,7 +178,7 @@
         "これは仕上がりエグい。{tags}",
         "筋肉女子、やっぱ最高。{tags}",
         "バキバキ。でも美しい。{tags}",
-        "このダイエット×筋肉美、刺さる人には刺さる。{tags}",
+        "このAI×筋肉美、刺さる人には刺さる。{tags}",
         "継続は力なり。今日も積み上げ💪 {tags}",
         "Strong is beautiful💪 {tags}",
         "全作品まとめはeronaviで。{tags}",
@@ -199,355 +195,183 @@
       "affiliate_cards": []
     }
   },
-  "performance": {
-    "as_of": "2026-08-04",
-    "winners": [
-      "facebook",
-      "tumblr"
-    ],
-    "blocked_platforms": {
-      "x": {
-        "status": "paused",
-        "sessions_28d": 4,
-        "sessions_prev28d": 1,
-        "measured_verdict": "alive",
-        "reason": "X auto-uploader is paused after repeated auth/app failures; do not increase cadence or treat historical t.co traffic as a current publish lane.",
-        "allowed_modes": [
-          "manual_dry_run"
-        ]
-      }
-    },
-    "dead_platforms": [
-      "ameblo",
-      "deviantart",
-      "fc2",
-      "hatena",
-      "instagram",
-      "livedoor",
-      "mixi",
-      "pawoo",
-      "pinterest",
-      "pixiv",
-      "rakuten",
-      "threads"
-    ],
-    "platform_sessions_28d": {
-      "x": 4,
-      "facebook": 4,
-      "tumblr": 1,
-      "pinterest": 0,
-      "instagram": 0,
-      "threads": 0,
-      "ameblo": 0,
-      "rakuten": 0,
-      "fc2": 0,
-      "hatena": 0,
-      "livedoor": 0,
-      "mixi": 0,
-      "pixiv": 0,
-      "deviantart": 0,
-      "pawoo": 0
-    },
-    "lane_sessions_28d": {
-      "safe_fitness": 4,
-      "mature_muscle": 5,
-      "adult_fanza": 0
-    },
-    "organic_sessions_28d": 34,
-    "fanza_clicks_28d": 0,
-    "note": "uploaderは勝ち媒体(先頭)ほど投稿頻度・品質を上げる。deadは導線リンクと投稿実績を点検。"
-  },
-  "platform_focus": {
-    "facebook": {
-      "lane": "safe_fitness",
-      "sessions_28d": 4,
-      "status": "alive",
-      "action": "amplify",
-      "cadence_hint": "increase_quality_and_frequency"
-    },
-    "x": {
-      "lane": "mature_muscle",
-      "sessions_28d": 4,
-      "status": "paused",
-      "action": "hold",
-      "cadence_hint": "manual_dry_run_only"
-    },
-    "tumblr": {
-      "lane": "mature_muscle",
-      "sessions_28d": 1,
-      "status": "alive",
-      "action": "amplify",
-      "cadence_hint": "increase_quality_and_frequency"
-    },
-    "ameblo": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "deviantart": {
-      "lane": "mature_muscle",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "fc2": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "hatena": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "instagram": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "livedoor": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "mixi": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "pawoo": {
-      "lane": "adult_fanza",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "pinterest": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "pixiv": {
-      "lane": "mature_muscle",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "rakuten": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    },
-    "threads": {
-      "lane": "safe_fitness",
-      "sessions_28d": 0,
-      "status": "dead",
-      "action": "audit_or_low_cadence",
-      "cadence_hint": "verify_link_and_post_log_before_scaling"
-    }
-  },
-  "conversion_focus": {
-    "north_star": "2031年 年商1億円",
-    "current_gap": "月商見込0円 / FANZAクリック28日ゼロ",
-    "this_week": [
-      "facebook/tumblrの勝ち媒体を増幅する",
-      "x(paused)はmanual_dry_run_onlyに固定する",
-      "流入ゼロ媒体はリンク有無と投稿ログを確認してから頻度を上げる"
-    ]
-  },
-  "intel": {
-    "top_pages": [
-      {
-        "property": "blog",
-        "page_path": "/",
-        "page_views_28d": 87
-      },
-      {
-        "property": "blog",
-        "page_path": "/ai-tool-hub/",
-        "page_views_28d": 7
-      },
-      {
-        "property": "blog",
-        "page_path": "/joshi-prowrestling-navi/articles/stardom-vs-marigold-2026.html",
-        "page_views_28d": 6
-      },
-      {
-        "property": "eronavi",
-        "page_path": "/eronavi/",
-        "page_views_28d": 6
-      },
-      {
-        "property": "blog",
-        "page_path": "/antigravity-guide/articles/antigravity-pricing-credit-system-2026.html",
-        "page_views_28d": 4
-      },
-      {
-        "property": "blog",
-        "page_path": "/antigravity-guide/articles/antigravity-recommended-settings-extensions-2026.html",
-        "page_views_28d": 4
-      },
-      {
-        "property": "blog",
-        "page_path": "/antigravity-guide/articles/antigravity-tsukaikata-2026-google-ai-ide-kouryaku.html",
-        "page_views_28d": 4
-      },
-      {
-        "property": "blog",
-        "page_path": "/armwrestling-girls-navi/",
-        "page_views_28d": 4
-      }
-    ],
-    "top_queries": [
-      {
-        "query": "エロナビ",
-        "clicks": 0,
-        "impressions": 10
-      }
-    ],
-    "improvement_queue": [
-      "月商見込 0円 / 目標 300,000円 (0.0%)。CTA導線・投稿頻度・高PVページからのPatreon/FANZA誘導を強化する",
-      "FANZAクリックが28日間ゼロ。計測タグとクリック導線を点検する",
-      "ユーザー数が前期間比 -22.2% 減。流入元別の原因分析と新規記事投入",
-      "停止中媒体: x(paused)。過去流入は参考値に留め、投稿頻度増幅は現在動く媒体へ回す",
-      "流入ゼロの投稿媒体: ameblo, deviantart, fc2, hatena, instagram, livedoor, mixi, pawoo, pinterest, pixiv, rakuten, threads。リンク有無と投稿実績を点検、駄目なら頻度を勝ち媒体へ再配分",
-      "勝ち媒体 facebook: 4セッション/28日。投稿頻度・タグ量を増やして増幅する",
-      "勝ち媒体 tumblr: 1セッション/28日。投稿頻度・タグ量を増やして増幅する",
-      "FANZAクリック28日ゼロ。流入自体が無いのが主因。記事面のCTA改善より流入創出を優先する"
-    ],
-    "kpi_warnings": []
-  },
   "variant_weights": {
     "tumblr.caption": {
-      "0d115b4f": 0.99,
-      "1e53ae32": 1.313,
-      "b8acef31": 1.06,
-      "18927481": 0.752,
-      "cce7b575": 1.103,
-      "923b3ad1": 0.613,
-      "3dc90978": 1.011,
-      "dd699064": 0.827,
-      "af375567": 1.532,
-      "64362e89": 1.302,
-      "65eb7bd5": 1.131,
-      "d1448a80": 0.368
+      "0d115b4f": 0.999,
+      "1e53ae32": 1.217,
+      "b8acef31": 1.07,
+      "18927481": 0.759,
+      "cce7b575": 1.113,
+      "923b3ad1": 0.618,
+      "3dc90978": 1.02,
+      "dd699064": 0.834,
+      "af375567": 1.545,
+      "64362e89": 1.314,
+      "65eb7bd5": 1.141,
+      "d1448a80": 0.371
     },
     "deviantart.title": {
-      "24de42a3": 0.86,
+      "24de42a3": 0.913,
       "8f3fc275": 0.556,
       "c53568a4": 0.468,
-      "debd7c78": 0.811,
-      "45dac961": 0.548,
+      "debd7c78": 0.812,
+      "45dac961": 0.549,
       "3573b8f1": 0.38,
       "35c78f47": 0.68,
       "af35135e": 0.38,
-      "dd9d4530": 0.906,
-      "6415952f": 1.14,
-      "aaef222e": 1.206,
-      "b21f49eb": 0.68,
-      "211c19b9": 2.491,
-      "d8c1492c": 1.601,
-      "30c0f212": 1.257,
-      "4f013b5a": 2.07,
+      "dd9d4530": 0.907,
+      "6415952f": 1.141,
+      "aaef222e": 1.207,
+      "b21f49eb": 1.053,
+      "211c19b9": 2.493,
+      "d8c1492c": 1.602,
+      "30c0f212": 1.258,
+      "4f013b5a": 2.072,
       "23483c98": 0.468,
-      "6390b548": 1.206,
-      "62516698": 1.52,
-      "8ba95630": 1.52,
+      "6390b548": 1.207,
+      "62516698": 1.141,
+      "8ba95630": 1.522,
       "c50ea32a": 0.614,
-      "d24b5592": 0.292,
+      "d24b5592": 0.293,
       "05dbbfa9": 0.819,
-      "ba14c775": 0.906,
-      "c6fb9091": 1.403,
-      "51c7ec92": 1.403,
-      "8d1cea7f": 0.906,
-      "8b652ebf": 0.906
+      "ba14c775": 0.907,
+      "c6fb9091": 1.404,
+      "51c7ec92": 1.339,
+      "8d1cea7f": 0.907,
+      "8b652ebf": 0.907
     },
     "youtube.title": {
-      "e0e12957": 0.949,
-      "4a0cdd28": 0.678,
-      "f6092e4e": 0.949,
-      "b1b5df34": 0.759,
-      "29b2f257": 1.518,
-      "177d303b": 1.091,
-      "2c4804e0": 0.664,
-      "9a6b0229": 1.392
+      "e0e12957": 0.997,
+      "4a0cdd28": 0.623,
+      "f6092e4e": 0.997,
+      "b1b5df34": 0.798,
+      "29b2f257": 1.595,
+      "177d303b": 1.146,
+      "2c4804e0": 0.698,
+      "9a6b0229": 1.146
     },
     "youtube.desc": {
-      "a6b65dcd": 0.883,
-      "6fad0332": 1.03,
-      "ce2ac9ae": 1.133,
-      "a1e9fe2e": 0.883,
-      "549568fa": 1.073
+      "a6b65dcd": 0.939,
+      "6fad0332": 1.095,
+      "ce2ac9ae": 1.05,
+      "a1e9fe2e": 0.939,
+      "549568fa": 0.978
     },
     "youtube.cta": {
-      "fe6dbc36": 1.124,
-      "532d2222": 0.827,
-      "0b7c18b4": 1.049
+      "fe6dbc36": 1.179,
+      "532d2222": 0.796,
+      "0b7c18b4": 1.026
     },
     "rakuten.title": {
-      "39d014c5": 0.693,
-      "d00860f3": 1.039,
-      "ed29c19d": 0.462,
-      "f26b1b6e": 0.831,
-      "f83f4007": 1.039,
-      "5387d317": 0.831,
-      "de4f6d3f": 0.831,
-      "53d40f29": 1.039,
-      "6535f78c": 1.386,
-      "07c649e5": 1.039,
-      "edd7de36": 0.693,
-      "a9cae8f6": 0.831,
-      "4635d56f": 1.386,
-      "28105c8a": 1.039,
-      "95080833": 1.039,
-      "489bf883": 1.386,
-      "be604b2f": 0.831,
-      "645fae18": 0.831,
-      "412f2855": 1.386,
-      "5938c5f1": 1.386
+      "39d014c5": 0.7,
+      "d00860f3": 1.05,
+      "ed29c19d": 0.467,
+      "f26b1b6e": 0.84,
+      "f83f4007": 0.84,
+      "5387d317": 0.84,
+      "de4f6d3f": 0.84,
+      "53d40f29": 1.05,
+      "6535f78c": 1.4,
+      "07c649e5": 1.05,
+      "edd7de36": 0.7,
+      "a9cae8f6": 0.84,
+      "4635d56f": 1.4,
+      "28105c8a": 1.05,
+      "95080833": 1.05,
+      "489bf883": 1.4,
+      "be604b2f": 0.84,
+      "645fae18": 0.84,
+      "412f2855": 1.4,
+      "5938c5f1": 1.4
     },
     "rakuten.body": {
-      "7830c70e": 1.435,
-      "54869f81": 0.82,
-      "874d5b75": 0.883,
-      "be8c956b": 1.043,
-      "05a02d48": 0.82
+      "7830c70e": 1.45,
+      "54869f81": 0.774,
+      "874d5b75": 0.893,
+      "be8c956b": 1.055,
+      "05a02d48": 0.829
     }
   },
-  "variant_intel": {
-    "as_of": "2026-08-06 09:21:26 +0900",
-    "posts_with_variants": {
-      "tumblr": 105,
-      "deviantart": 45,
-      "youtube": 20,
-      "rakuten": 50
+  "channel_weights": {
+    "facebook": {
+      "weight": 1.0,
+      "cadence_factor": 1.25,
+      "action": "amplify"
     },
-    "weighted_kinds": [
-      "deviantart.title",
-      "rakuten.body",
-      "rakuten.title",
-      "tumblr.caption",
-      "youtube.cta",
-      "youtube.desc",
-      "youtube.title"
-    ]
+    "tumblr": {
+      "weight": 0.98,
+      "cadence_factor": 1.25,
+      "action": "amplify"
+    },
+    "pinterest": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "instagram": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "threads": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "ameblo": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "rakuten": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "fc2": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "hatena": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "livedoor": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "mixi": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "pixiv": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "deviantart": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "pawoo": {
+      "weight": 0.15,
+      "cadence_factor": 0.75,
+      "action": "explore"
+    },
+    "x": {
+      "weight": 0.0,
+      "cadence_factor": 0.0,
+      "action": "hold"
+    }
+  },
+  "revenue_mix": {
+    "has_actual": false,
+    "share_pct": {},
+    "note": "金額は非公開。構成比のみ（uploaderは注力先の判断に使う）"
   }
 }
