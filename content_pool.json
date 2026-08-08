@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-09 08:00:14 +0900",
+  "generated_at": "2026-08-09 08:56:40 +0900",
   "version": "20260809",
   "rules": {
     "generic_trend_max": 1,
@@ -193,6 +193,83 @@
         "https://musclelove-777.github.io/"
       ],
       "affiliate_cards": []
+    }
+  },
+  "platform_focus": {
+    "facebook": {
+      "lane": "safe_fitness",
+      "action": "amplify",
+      "cadence_hint": "increase_quality_and_frequency"
+    },
+    "x": {
+      "lane": "mature_muscle",
+      "action": "hold",
+      "cadence_hint": "manual_dry_run_only"
+    },
+    "tumblr": {
+      "lane": "mature_muscle",
+      "action": "amplify",
+      "cadence_hint": "increase_quality_and_frequency"
+    },
+    "ameblo": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "deviantart": {
+      "lane": "mature_muscle",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "fc2": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "hatena": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "instagram": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "livedoor": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "mixi": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "pawoo": {
+      "lane": "adult_fanza",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "pinterest": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "pixiv": {
+      "lane": "mature_muscle",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "rakuten": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
+    },
+    "threads": {
+      "lane": "safe_fitness",
+      "action": "audit_or_low_cadence",
+      "cadence_hint": "verify_link_and_post_log_before_scaling"
     }
   },
   "variant_weights": {
